@@ -47,3 +47,12 @@ const projectSwiper = new Swiper('.project-swiper', {
     },
   },
 })
+
+const menuBtn = document.querySelector('#menuBtn')
+const mobileMenu = document.querySelector('#mobileMenu')
+
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden')
+  })
+}
