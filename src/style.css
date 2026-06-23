@@ -4,6 +4,10 @@ html {
   scroll-behavior: smooth;
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
