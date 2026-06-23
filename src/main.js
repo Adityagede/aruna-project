@@ -44,6 +44,28 @@ Alpine.data('hotelNavbar', () => ({
   },
 }))
 
+
+Alpine.data('floatingWhatsApp', () => ({
+  open: false,
+
+  phone: '6281234567890',
+
+  message:
+    'Hello Aruna Ubud Retreat, I would like to ask about room availability and special offers.',
+
+  toggle() {
+    this.open = !this.open
+  },
+
+  close() {
+    this.open = false
+  },
+
+  get whatsappUrl() {
+    return `https://wa.me/${this.phone}?text=${encodeURIComponent(this.message)}`
+  },
+}))
+
 Alpine.start()
 
 // =========================
