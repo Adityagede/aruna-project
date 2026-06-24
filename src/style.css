@@ -57,11 +57,30 @@ img {
   }
 }
 
+.hero-swiper,
+.hero-swiper .swiper-wrapper,
+.hero-swiper .swiper-slide {
+  height: 100%;
+}
+
+.hero-swiper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 @media (max-height: 700px) and (max-width: 430px) {
   .hero-mobile-content {
     align-items: flex-start;
     padding-top: 4rem;
+  }
+
+  @media (max-width:430px) {
+    .imghero  {
+      height: 70%;
+    }
   }
 
   .hero-mobile-title {

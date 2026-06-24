@@ -23,7 +23,7 @@
 
   <!-- Popup Wrapper -->
   <div
-    class="relative w-full max-w-[21rem]"
+    class="relative w-full max-w-84"
     :style="`--popup-duration: ${duration}ms`"
   >
     <!-- Progress Ring -->
@@ -155,7 +155,8 @@
   x-transition:enter="transition ease-out duration-500"
   x-transition:enter-start="translate-y-full opacity-0"
   x-transition:enter-end="translate-y-0 opacity-100"
-  class="fixed bottom-0 left-0 z-[900] w-full border-t border-white/10 bg-[#7A4700] px-5 py-3 xl:hidden"
+  class="fixed bottom-0 left-0 z-900 w-full border-t border-white/10 bg-[#7A4700] px-5 py-3 xl:hidden"
+
 >
   <a
     href="#contact"
@@ -168,8 +169,7 @@
 <div
   x-data="floatingWhatsApp"
   class="fixed right-5 z-[999] flex flex-col items-end transition-all duration-500 ease-out xl:bottom-6 "
-  :class="$store.mobileCta.bookNowVisible ? 'bottom-20' : 'bottom-5'"
->
+  :class="$store.mobileCta.bookNowVisible ? 'bottom-20' : 'bottom-5'">
   <!-- WhatsApp Card -->
   <div
     x-cloak
@@ -320,11 +320,11 @@
    
 
     <!-- DESKTOP MENU -->
-    <ul class="hidden items-center gap-8 text-lg font-semibold lg:flex">
+    <ul class="hidden items-center gap-8 text-lg font-semibold lg:flex lg:text-[15px] xl:text-[18px]">
       <li><a href="#home" class="transition duration-300 hover:text-amber-200">Home</a></li>
       <li><a href="#about" class="transition duration-300 hover:text-amber-200">About</a></li>
       <li><a href="#accommodation" class="transition duration-300 hover:text-amber-200">Accommodation</a></li>
-      <li><a href="#offers" class="transition duration-300 hover:text-amber-200">Offers</a></li>
+      <li><a href="#offers" class="transition duration-300 hover:text-amber-200">text</a></li>
       <li><a href="#contact" class="transition duration-300 hover:text-amber-200">Contact</a></li>
 
       <!-- DESKTOP GALLERY DROPDOWN -->
@@ -524,53 +524,67 @@
   <!-- HERO IMAGE -->
 
 
-  <!-- HERO IMAGE SLIDER -->
-<div class="absolute inset-0">
-  <div class="swiper hero-swiper h-full w-full">
-    <div class="swiper-wrapper">
+   <div class="imghero absolute inset-0 z-0">
+    <div class="swiper hero-swiper h-full w-full">
+      <div class="swiper-wrapper h-full">
 
-      <div class="swiper-slide">
-        <img
-          src="/images/image-landing.jpg"
-          alt="Tropical jungle view at Aruna Ubud Retreat"
-          class="h-full w-full object-cover"
-        />
-      </div>
+        <div class="swiper-slide h-full">
+          <img
+            src="/images/image-landing.webp"
+            width="1920"
+            height="1080"
+            alt="Tropical jungle view at Aruna Ubud Retreat"
+            class="block h-full w-full object-cover"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
 
-      <div class="swiper-slide">
-        <img
-          src="/images/image-landing1.jpg"
-          alt="Private pool villa surrounded by tropical garden"
-          class="h-full w-full object-cover"
-        />
-      </div>
+        <div class="swiper-slide h-full">
+          <img
+            src="/images/image-landing1.webp"
+            width="1920"
+            height="1080"
+            alt="Private pool villa surrounded by tropical garden"
+            class="block h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
 
-      <div class="swiper-slide">
-        <img
-          src="/public/images/image-landing2.jpg"
-          alt="Peaceful villa terrace in Ubud greenery"
-          class="h-full w-full object-cover"
-        />
+        <div class="swiper-slide h-full">
+          <img
+            src="/images/image-landing2.webp"
+            width="1920"
+            height="1080"
+            alt="Peaceful villa terrace in Ubud greenery"
+            class="block h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
       </div>
     </div>
+
+    <!-- GLOBAL OVERLAY -->
+    <div class="pointer-events-none absolute inset-0 z-10 bg-black/30"></div>
+
+    <!-- GLOBAL SHADOW BAWAH -->
+    <div class="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-[#07150F]/30 via-transparent to-[#07150F]"></div>
   </div>
 
-  <!-- GLOBAL OVERLAY, DI LUAR SWIPER-WRAPPER -->
-  <div class="pointer-events-none absolute inset-0 z-10 bg-black/30"></div>
-
-  <!-- GLOBAL SHADOW BAWAH -->
-  <div class="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-[#07150F]/30 via-transparent to-[#07150F]"></div>
-</div>
 
   <!-- HERO CONTENT -->
  <div class="hero-mobile-content relative z-10 mx-auto flex h-full max-w-7xl items-center justify-center px-5 py-10 md:px-8 xl:px-12">
     <div class="mx-auto max-w-3xl text-center">
-      <div class="mb-9 hidden md:block lg:flex lg:justify-center">
+      <div class="mb-9 hidden md:flex md:justify-center">
         <svg width="90" height="90" viewBox="0 0 79 76" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M32.7822 1.5C40.4332 1.5 44.0904 5.88153 44.2587 10.2281C44.427 14.5748 40.8157 27.6844 34.6949 27.6844C28.5741 27.6844 22.3462 16.2645 22.3462 11.4815C22.3462 6.69848 25.1312 1.5 32.7822 1.5ZM58.3021 18.0101C51.8561 21.7667 44.2128 30.6031 46.8332 35.1173C49.4537 39.6315 65.0503 39.7816 70.5781 37.5402C76.0983 35.2954 78.933 30.1039 76.7754 24.1932C74.6178 18.2825 67.0013 12.9443 58.3021 18.0101ZM63.4244 54.4833C60.364 50.2938 48.417 45.0813 44.3046 47.2773C40.1883 49.4768 41.8371 62.5341 45.414 66.1895C49.9472 70.8259 55.3412 71.4264 61.0794 67.9351C66.8177 64.4438 66.7947 59.0952 63.4244 54.4833ZM28.5741 69.4538C33.3866 63.77 32.0936 48.7891 28.5741 46.8828C25.0547 44.9801 14.5422 50.9676 9.95159 55.1571C1.78032 62.6144 7.58743 69.4538 10.9998 71.8174C16.1183 75.3645 24.0983 74.7465 28.5741 69.4538ZM9.58052 40.637C16.7342 40.637 22.8703 39.5687 23.7043 36.0774C24.5382 32.5861 17.5643 26.9478 12.9737 25.5513C7.23549 23.8056 2.57603 26.0924 1.68851 31.0116C0.99227 34.8624 1.92952 40.637 9.58052 40.637Z" stroke="#FFEBD5" stroke-width="3" stroke-linejoin="round"/>
         </svg>
       </div>
-      <hr class="mb-9 hidden md:block border-[#D2D2D2]/30">
+      <hr class="mb-9 hidden lg:block border-[#D2D2D2]/30">
      <p class="hero-mobile-eyebrow mb-4 text-[10px] font-semibold uppercase tracking-[0.25em] text-amber-100 md:text-xs">
   A Retreat Designed to Slow You Down
 </p>
@@ -583,17 +597,17 @@
         Discover peaceful villas, warm comfort, and Ubud’s greenery in one calm retreat.
       </p>
 
-      <div class="mx-auto mt-8 flex w-full max-w-md flex-col items-center justify-center gap-3 sm:flex-row">
+      <div class="mx-auto mt-8 flex w-full max-w-md flex-col items-center justify-center md:flex lg:flex gap-5 sm:flex-row">
   <a
     href="#offers"
-    class="w-full rounded-md bg-[#F7F2E8] px-6 py-3 text-center text-sm font-semibold text-black transition hover:bg-amber-200 sm:w-auto"
+    class="w-full rounded-md bg-[#F7F2E8] px-6 py-3 xl:px-15 xl:py-4 text-center text-sm font-semibold text-black transition  hover:bg-amber-200 sm:w-auto"
   >
     Special Offers
   </a>
 
   <a
     href="#accommodation"
-    class="w-full rounded-md border border-white/40 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/10 sm:w-auto"
+    class="w-full rounded-md border border-white/40 px-6 py-3 xl:px-15 xl:py-4 text-center text-sm font-semibold text-white transition hover:bg-white/10 sm:w-auto"
   >
     Explore Rooms
   </a>
@@ -620,7 +634,11 @@
         <img src="/public/images/about-main.jpg" alt="main-about" >
       </div>
     </section>
+    <section>
+      <div>
 
+      </div>
+    </section>
   </main>
 
   <script type="module" src="/src/main.js"></script>
