@@ -20,6 +20,45 @@ window.Alpine = Alpine
 
 Alpine.plugin(collapse)
 
+
+Alpine.data('welcomePopup', () => ({
+  open: false,
+  duration: 6000,
+  timer: null,
+
+  init() {
+    const alreadySeen = sessionStorage.getItem('arunaWelcomePopupSeen')
+
+    if (alreadySeen) return
+
+    this.open = true
+    document.body.classList.add('overflow-hidden')
+
+    this.timer = setTimeout(() => {
+      this.close()
+    }, this.duration)
+  },
+
+  close() {
+    this.open = false
+    document.body.classList.remove('overflow-hidden')
+    sessionStorage.setItem('arunaWelcomePopupSeen', 'true')
+
+    if (this.timer) {
+      clearTimeout(this.timer)
+    }
+  },
+}))
+
+Alpine.store('mobileCta', {
+  bookNowVisible: false,
+
+  show() {
+    this.bookNowVisible = true
+  },
+})
+
+
 Alpine.data('hotelNavbar', () => ({
   open: false,
   galleryOpen: false,

@@ -19,6 +19,24 @@ img {
   max-width: 100%;
 }
 
+.popup-progress-circle {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: popup-progress var(--popup-duration, 6000ms) linear forwards;
+}
+
+@keyframes popup-progress {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popup-progress-circle {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
 
 @media (max-height: 700px) and (max-width: 430px) {
   .hero-mobile-content {

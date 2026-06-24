@@ -9,15 +9,125 @@
 
 <body class="bg-[#07150F] text-[#D2D2D2]">
 
+<!-- WELCOME POPUP -->
+<div
+  x-data="welcomePopup"
+  x-init="init"
+  x-cloak
+  x-show="open"
+  x-transition.opacity.duration.300ms
+  class="fixed inset-0 z-2000 flex items-center justify-center px-5"
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-[#07150F]/80 backdrop-blur-sm"></div>
+
+  <!-- Popup Wrapper -->
+  <div
+    class="relative w-full max-w-[21rem]"
+    :style="`--popup-duration: ${duration}ms`"
+  >
+    <!-- Progress Ring -->
+    <div class="pointer-events-none absolute left-1/2 top-1/2 h-[22rem] w-[22rem] -translate-x-1/2 -translate-y-1/2">
+      <svg
+        class="h-full w-full -rotate-90"
+        viewBox="0 0 360 360"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="180"
+          cy="180"
+          r="160"
+          pathLength="100"
+          fill="none"
+          stroke="rgba(244, 235, 221, 0.18)"
+          stroke-width="7"
+        />
+
+        <circle
+          class="popup-progress-circle"
+          cx="180"
+          cy="180"
+          r="160"
+          pathLength="100"
+          fill="none"
+          stroke="#F7F2E8"
+          stroke-width="7"
+          stroke-linecap="round"
+        />
+      </svg>
+    </div>
+
+    <!-- Card -->
+    <div
+      x-show="open"
+      x-transition:enter="transition ease-out duration-500"
+      x-transition:enter-start="opacity-0 translate-y-6 scale-95"
+      x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+      x-transition:leave="transition ease-in duration-300"
+      x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+      x-transition:leave-end="opacity-0 translate-y-6 scale-95"
+      class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#07150F]/95 px-7 py-8 text-center text-[#F4EBDD] shadow-2xl backdrop-blur-xl"
+    >
+      <!-- Soft Glow -->
+      <div class="absolute -right-16 -top-16 h-32 w-32 rounded-full bg-amber-100/10 blur-3xl"></div>
+      <div class="absolute -bottom-16 -left-16 h-32 w-32 rounded-full bg-emerald-200/10 blur-3xl"></div>
+
+      <!-- Logo Icon -->
+      <div class="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-white/15 bg-white/5">
+        <svg
+          class="h-11 w-11 text-[#F7F2E8]"
+          viewBox="0 0 79 76"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M32.7822 1.5C40.4332 1.5 44.0904 5.88153 44.2587 10.2281C44.427 14.5748 40.8157 27.6844 34.6949 27.6844C28.5741 27.6844 22.3462 16.2645 22.3462 11.4815C22.3462 6.69848 25.1312 1.5 32.7822 1.5ZM58.3021 18.0101C51.8561 21.7667 44.2128 30.6031 46.8332 35.1173C49.4537 39.6315 65.0503 39.7816 70.5781 37.5402C76.0983 35.2954 78.933 30.1039 76.7754 24.1932C74.6178 18.2825 67.0013 12.9443 58.3021 18.0101ZM63.4244 54.4833C60.364 50.2938 48.417 45.0813 44.3046 47.2773C40.1883 49.4768 41.8371 62.5341 45.414 66.1895C49.9472 70.8259 55.3412 71.4264 61.0794 67.9351C66.8177 64.4438 66.7947 59.0952 63.4244 54.4833ZM28.5741 69.4538C33.3866 63.77 32.0936 48.7891 28.5741 46.8828C25.0547 44.9801 14.5422 50.9676 9.95159 55.1571C1.78032 62.6144 7.58743 69.4538 10.9998 71.8174C16.1183 75.3645 24.0983 74.7465 28.5741 69.4538ZM9.58052 40.637C16.7342 40.637 22.8703 39.5687 23.7043 36.0774C24.5382 32.5861 17.5643 26.9478 12.9737 25.5513C7.23549 23.8056 2.57603 26.0924 1.68851 31.0116C0.99227 34.8624 1.92952 40.637 9.58052 40.637Z"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <p class="relative mb-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-amber-100">
+        Welcome to
+      </p>
+
+      <h2 class="relative text-2xl font-semibold leading-tight text-[#FFEBD5]">
+        Aruna Ubud Retreat
+      </h2>
+
+      <p class="relative mt-5 text-sm leading-7 text-white/75">
+        Slow down in the calm side of Ubud. Discover peaceful villas, tropical comfort, and special stays designed for a more mindful escape.
+      </p>
+
+      <div class="relative mt-7 flex flex-col gap-3">
+
+        <button
+          type="button"
+          @click="close"
+          class="rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white/80 transition duration-300 hover:bg-white/10 hover:text-white"
+        >
+          Accept
+        </button>
+      </div>
+
+      <p class="relative mt-5 text-[10px] text-white/40">
+        This message will close automatically.
+      </p>
+    </div>
+  </div>
+</div>
+
 
 <!-- MOBILE BOOK NOW BAR -->
-<!-- MOBILE BOOK NOW BAR -->
 <div
-  x-data="{ showBookNow: false }"
-  x-init="if (window.scrollY > 10) showBookNow = true"
-  @scroll.window.once="showBookNow = true"
-  class="fixed bottom-0 left-0 z-[900] w-full border-t border-white/10 bg-[#7A4700] px-5 py-3 transition-all duration-500 ease-out lg:hidden"
-  :class="showBookNow 
+  x-data
+  x-init="if (window.scrollY > 10) $store.mobileCta.show()"
+  @scroll.window.once="$store.mobileCta.show()"
+  class="fixed bottom-0 left-0 z-[900] w-full border-t border-white/10 bg-[#7A4700] px-5 py-3 transition-all duration-500 ease-out xl:hidden"
+  :class="$store.mobileCta.bookNowVisible 
     ? 'translate-y-0 opacity-100' 
     : 'translate-y-full opacity-0 pointer-events-none'"
 >
@@ -27,13 +137,13 @@
   >
     Book Now
   </a>
-</div> 
+</div>
 
   <!-- FLOATING WHATSAPP -->
 <div
   x-data="floatingWhatsApp"
-  @keydown.escape.window="close"
-  class="fixed bottom-20 right-5 z-999 flex flex-col items-end"
+  class="fixed right-5 z-[999] flex flex-col items-end transition-all duration-500 ease-out xl:bottom-6 "
+  :class="$store.mobileCta.bookNowVisible ? 'bottom-20' : 'bottom-5'"
 >
   <!-- WhatsApp Card -->
   <div
@@ -129,7 +239,7 @@
   </button>
 </div>
 
-<div class="relative z-50 bg-[#F4EBDD] px-5 py-4 text-left text-[8px] md:text-[12px] font-medium uppercase tracking-wide text-[#6c471a]">
+<div class="relative z-50 bg-[#F4EBDD] px-5 py-4 text-left text-[7px] md:text-[12px] font-medium uppercase tracking-wide text-[#6c471a]">
   <a href="#contact" class="transition hover:text-[#c8730b]">
      Check-in
   </a>
