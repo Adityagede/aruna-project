@@ -10,16 +10,30 @@
 <body class="bg-[#07150F] text-[#D2D2D2]">
 
 
-  <a href="#" class="transition hover:bg-[#4d3103] fixed bottom-0.5  z-999 flex justify-center items-end bg-[#5f3c04] w-full h-10 xl:hidden pb-1.5 shadow-lg ">
-    <span class=" font-bold flex">Book Now</span>
+<!-- MOBILE BOOK NOW BAR -->
+<!-- MOBILE BOOK NOW BAR -->
+<div
+  x-data="{ showBookNow: false }"
+  x-init="if (window.scrollY > 10) showBookNow = true"
+  @scroll.window.once="showBookNow = true"
+  class="fixed bottom-0 left-0 z-[900] w-full border-t border-white/10 bg-[#7A4700] px-5 py-3 transition-all duration-500 ease-out lg:hidden"
+  :class="showBookNow 
+    ? 'translate-y-0 opacity-100' 
+    : 'translate-y-full opacity-0 pointer-events-none'"
+>
+  <a
+    href="#contact"
+    class="block w-full rounded-md text-center text-base font-semibold text-[#F7F2E8]"
+  >
+    Book Now
   </a>
- 
+</div> 
 
   <!-- FLOATING WHATSAPP -->
 <div
   x-data="floatingWhatsApp"
   @keydown.escape.window="close"
-  class="fixed bottom-5 right-5 z-999 flex flex-col items-end"
+  class="fixed bottom-20 right-5 z-999 flex flex-col items-end"
 >
   <!-- WhatsApp Card -->
   <div
@@ -85,6 +99,7 @@
   </div>
 
   <!-- Floating Button -->
+  
   <button
     type="button"
     @click="toggle"
@@ -114,10 +129,6 @@
   </button>
 </div>
 
-
-
-
-    <!-- TOP BAR: TIDAK FIXED -->
 <div class="relative z-50 bg-[#F4EBDD] px-5 py-4 text-left text-[8px] md:text-[12px] font-medium uppercase tracking-wide text-[#6c471a]">
   <a href="#contact" class="transition hover:text-[#c8730b]">
      Check-in
@@ -154,25 +165,26 @@
     x-show="open"
     x-transition.opacity.duration.250ms
     @click="closeAll"
-    class="fixed inset-0 z-40 bg-black/20 lg:hidden"
-  ></div>
+    class="fixed inset-0 z-40 bg-black/20 lg:hidden">
+  </div>
 
   <div class="relative z-50 mx-auto flex max-w-7xl items-center justify-between">
 
-    <a href="#home" class="flex items-center gap-3" @click="closeAll">
-      <div>
+    
+      <div class="flex items-center gap-3">
         <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M18.3363 0.5C22.6987 0.5 24.784 3.15198 24.88 5.78282C24.9759 8.41366 22.9169 16.3485 19.4269 16.3485C15.937 16.3485 12.386 9.43642 12.386 6.54143C12.386 3.64645 13.9739 0.5 18.3363 0.5ZM32.8872 10.493C29.2118 12.7667 24.8538 18.115 26.3479 20.8473C27.842 23.5796 36.7348 23.6704 39.8866 22.3138C43.0341 20.9551 44.6504 17.8129 43.4202 14.2353C42.19 10.6578 37.8472 7.42683 32.8872 10.493ZM35.8078 32.5688C34.0628 30.0331 27.2509 26.8782 24.9061 28.2073C22.5591 29.5386 23.4992 37.4417 25.5387 39.6541C28.1234 42.4604 31.1989 42.8238 34.4707 40.7107C37.7425 38.5976 37.7294 35.3603 35.8078 32.5688ZM15.937 41.6299C18.681 38.1898 17.9437 29.1223 15.937 27.9685C13.9303 26.8169 7.93634 30.4409 5.31889 32.9767C0.659834 37.4903 3.97091 41.6299 5.91654 43.0605C8.835 45.2074 13.385 44.8334 15.937 41.6299ZM5.10731 24.1882C9.18617 24.1882 12.6848 23.5415 13.1603 21.4284C13.6358 19.3153 9.65949 15.9026 7.04204 15.0573C3.77023 14.0008 1.11352 15.3849 0.607484 18.3623C0.210505 20.6931 0.7449 24.1882 5.10731 24.1882Z" stroke="#D2D2D2" stroke-linejoin="round"/>
         </svg>
-      </div>
+      
 
-      <p class="text-base font-semibold tracking-wide md:text-lg">
+      <p class="text-base font-semibold tracking-wide md:text-lg xl:text-[24px]">
         Aruna Ubud Retreat
       </p>
-    </a>
+      </div>
+   
 
     <!-- DESKTOP MENU -->
-    <ul class="hidden items-center gap-8 text-sm font-semibold lg:flex">
+    <ul class="hidden items-center gap-8 text-lg font-semibold lg:flex">
       <li><a href="#home" class="transition duration-300 hover:text-amber-200">Home</a></li>
       <li><a href="#about" class="transition duration-300 hover:text-amber-200">About</a></li>
       <li><a href="#accommodation" class="transition duration-300 hover:text-amber-200">Accommodation</a></li>
@@ -186,7 +198,7 @@
           @click="toggleGallery"
           class="flex items-center gap-1 transition duration-300 hover:text-amber-200"
         >
-          Gallery
+          More
 
           <span
             class="text-xs transition duration-300"
@@ -205,7 +217,7 @@
           x-transition:leave="transition ease-in duration-200"
           x-transition:leave-start="opacity-100 translate-y-0 scale-100"
           x-transition:leave-end="opacity-0 translate-y-3 scale-95"
-          class="absolute right-0 top-full mt-4 w-56 rounded-2xl border border-white/10 bg-[#07150F]/95 p-3 shadow-2xl backdrop-blur-xl"
+          class="absolute left-0 top-full mt-7 w-56 rounded-2xl border border-white/10 bg-[#07150F]/95 p-3 shadow-2xl backdrop-blur-xl"
         >
           <a href="#gallery" @click="closeAll" class="block rounded-xl px-4 py-3 text-sm text-white/75 transition hover:bg-white/10 hover:text-amber-200">
             All Gallery
@@ -318,7 +330,7 @@
             x-collapse.duration.300ms
             class="overflow-hidden"
           >
-            <div class="mt-3 space-y-3 border-l border-white/20 pl-4">
+            <div class="mt-3 space-y-4 border-l border-white/20 pl-4">
               <a href="#gallery" @click="closeAll" class="block text-white/70 transition hover:translate-x-1 hover:text-amber-200">
                 All Gallery
               </a>
@@ -386,7 +398,7 @@
   </div>
 
   <!-- HERO CONTENT -->
-  <div class="relative z-10 mx-auto flex h-full max-w-7xl items-center justify-center px-5 md:px-8 xl:px-12">
+ <div class="hero-mobile-content relative z-10 mx-auto flex h-full max-w-7xl items-center justify-center px-5 py-10 md:px-8 xl:px-12">
     <div class="mx-auto max-w-3xl text-center">
       <div class="mb-9 hidden md:block lg:flex lg:justify-center">
         <svg width="90" height="90" viewBox="0 0 79 76" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -394,27 +406,33 @@
         </svg>
       </div>
       <hr class="mb-9 hidden md:block border-[#D2D2D2]/30">
-      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-amber-100 md:text-sm">
-        A Retreat Designed to Slow You Down
-      </p>
+     <p class="hero-mobile-eyebrow mb-4 text-[10px] font-semibold uppercase tracking-[0.25em] text-amber-100 md:text-xs">
+  A Retreat Designed to Slow You Down
+</p>
 
-      <h1 class="text-4xl font-semibold leading-tight text-[#FFEBD5] md:text-6xl lg:text-6xl">
-        Escape to Tropical Serenity
-      </h1>
+      <h1 class="hero-mobile-title text-[clamp(2.25rem,9vw,3.3rem)] font-semibold leading-tight text-[#FFEBD5] md:text-5xl xl:text-6xl">
+  Escape to Tropical Serenity
+</h1>
 
       <p class=" mx-auto mt-5 max-w-xl text-sm leading-7 text-white/80 md:text-base lg:text-lg lg:text-center">
         Discover peaceful villas, warm comfort, and Ubud’s greenery in one calm retreat.
       </p>
 
-      <div class="mt-8 flex flex-col gap-4 sm:flex-row lg:flex lg:justify-center lg:gap-10">
-        <a href="#contact" class="rounded-md bg-[#F7F2E8] px-6 py-3 text-center text-sm font-semibold text-black transition hover:bg-amber-200 lg:px-16 lg:py-4">
-          Special Offers
-        </a>
+      <div class="mx-auto mt-8 flex w-full max-w-md flex-col items-center justify-center gap-3 sm:flex-row">
+  <a
+    href="#offers"
+    class="w-full rounded-md bg-[#F7F2E8] px-6 py-3 text-center text-sm font-semibold text-black transition hover:bg-amber-200 sm:w-auto"
+  >
+    Special Offers
+  </a>
 
-        <a href="#accommodation" class="rounded-md border border-white/40 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/10 lg:px-16 lg:py-4">
-          Explore Rooms
-        </a>
-      </div>
+  <a
+    href="#accommodation"
+    class="w-full rounded-md border border-white/40 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/10 sm:w-auto"
+  >
+    Explore Rooms
+  </a>
+</div>
     </div>
   </div>
 </header>
@@ -428,7 +446,7 @@
 
         </div>
       <div class="mx-auto max-w-7xl flex justify-center">
-        <p class="text-md uppercase tracking-[0.3em] text-amber-100 pt-10 lg:text-3xl">
+        <p class="text-md uppercase tracking-[0.3em] text-amber-100 pb-15 pt-10 lg:text-3xl">
           Aruna Ubud Retreat
         </p>
       </div>
