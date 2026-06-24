@@ -38,6 +38,26 @@ img {
   }
 }
 
+
+.popup-progress-line {
+  width: 0%;
+  animation: popup-progress-line var(--popup-duration, 6000ms) linear forwards;
+}
+
+@keyframes popup-progress-line {
+  to {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popup-progress-line {
+    animation: none;
+    width: 100%;
+  }
+}
+
+
 @media (max-height: 700px) and (max-width: 430px) {
   .hero-mobile-content {
     align-items: flex-start;

@@ -4,7 +4,10 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 import Swiper from 'swiper'
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import { Autoplay, EffectFade } from 'swiper/modules'
+
+import 'swiper/css'
+import 'swiper/css/effect-fade'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -24,7 +27,9 @@ Alpine.plugin(collapse)
 Alpine.data('welcomePopup', () => ({
   open: false,
   duration: 6000,
+  secondsLeft: 6,
   timer: null,
+  countdownTimer: null,
 
   init() {
     const alreadySeen = sessionStorage.getItem('arunaWelcomePopupSeen')
@@ -32,7 +37,15 @@ Alpine.data('welcomePopup', () => ({
     if (alreadySeen) return
 
     this.open = true
+    this.secondsLeft = Math.ceil(this.duration / 1000)
+
     document.body.classList.add('overflow-hidden')
+
+    this.countdownTimer = setInterval(() => {
+      if (this.secondsLeft > 1) {
+        this.secondsLeft--
+      }
+    }, 1000)
 
     this.timer = setTimeout(() => {
       this.close()
@@ -47,17 +60,20 @@ Alpine.data('welcomePopup', () => ({
     if (this.timer) {
       clearTimeout(this.timer)
     }
+
+    if (this.countdownTimer) {
+      clearInterval(this.countdownTimer)
+    }
   },
 }))
 
 Alpine.store('mobileCta', {
   bookNowVisible: false,
 
-  show() {
+  reveal() {
     this.bookNowVisible = true
   },
-})
-
+})  
 
 Alpine.data('hotelNavbar', () => ({
   open: false,
@@ -120,6 +136,24 @@ AOS.init({
 // =========================
 // SWIPER SETUP
 // =========================
+
+const heroSwiperEl = document.querySelector('.hero-swiper')
+
+if (heroSwiperEl) {
+  new Swiper('.hero-swiper', {
+    modules: [Autoplay],
+    loop: true,
+    speed: 1200,
+    slidesPerView: 1,
+    allowTouchMove: false,
+
+    autoplay: {
+      delay: 4500,
+      disableOnInteraction: false,
+    },
+  })
+}
+
 const projectSwiperEl = document.querySelector('.project-swiper')
 
 if (projectSwiperEl) {
