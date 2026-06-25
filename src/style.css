@@ -203,7 +203,7 @@ img {
 
 .retreat-sink-image {
   transform:
-    scale(calc(1.03 + (var(--sink-progress) * 0.16)))
+   scale(calc(1.02 + (var(--sink-progress) * 0.08)))
     translate3d(0, calc(var(--sink-progress) * -32px), 0);
   filter:
     brightness(calc(0.9 - (var(--sink-progress) * 0.22)))
