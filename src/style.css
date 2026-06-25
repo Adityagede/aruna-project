@@ -19,6 +19,10 @@ img {
   max-width: 100%;
 }
 
+.-mt-screen {
+  margin-top: -100vh;
+}
+
 .popup-progress-circle {
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
