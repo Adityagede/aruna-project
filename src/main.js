@@ -188,3 +188,86 @@ if (projectSwiperEl) {
     },
   })
 }
+
+
+// =========================
+// RETREAT DEPTH SCROLL EFFECT
+// =========================
+const retreatDepthSection = document.querySelector('.retreat-depth-section')
+
+if (retreatDepthSection) {
+  const updateRetreatDepth = () => {
+    const rect = retreatDepthSection.getBoundingClientRect()
+    const scrollableDistance = retreatDepthSection.offsetHeight - window.innerHeight
+
+    if (scrollableDistance <= 0) return
+
+    const progress = Math.min(
+      Math.max(-rect.top / scrollableDistance, 0),
+      1
+    )
+
+    const imageScale = 1.04 + progress * 0.12
+const imageY = progress * -25
+const imageBrightness = 0.9 - progress * 0.12
+
+const cardY = progress * -45
+const cardScale = 1 - progress * 0.025
+const cardOpacity = 1 - progress * 0.1
+
+    retreatDepthSection.style.setProperty('--image-scale', imageScale)
+    retreatDepthSection.style.setProperty('--image-y', `${imageY}px`)
+    retreatDepthSection.style.setProperty('--image-brightness', imageBrightness)
+    retreatDepthSection.style.setProperty('--card-y', `${cardY}px`)
+    retreatDepthSection.style.setProperty('--card-scale', cardScale)
+    retreatDepthSection.style.setProperty('--card-opacity', cardOpacity)
+  }
+
+  window.addEventListener('scroll', updateRetreatDepth, { passive: true })
+  window.addEventListener('resize', updateRetreatDepth)
+
+  updateRetreatDepth()
+}
+
+
+
+// =========================
+// RETREAT SINK SCROLL EFFECT
+// =========================
+const retreatSinkSection = document.querySelector('.retreat-sink-section')
+
+if (retreatSinkSection) {
+  let ticking = false
+
+  const clamp = (value, min, max) => {
+    return Math.min(Math.max(value, min), max)
+  }
+
+  const updateSinkEffect = () => {
+    const rect = retreatSinkSection.getBoundingClientRect()
+    const sectionHeight = retreatSinkSection.offsetHeight
+    const viewportHeight = window.innerHeight
+
+    const scrollable = sectionHeight - viewportHeight
+
+    if (scrollable <= 0) return
+
+    const progress = clamp(-rect.top / scrollable, 0, 1)
+
+    retreatSinkSection.style.setProperty('--sink-progress', progress.toFixed(3))
+
+    ticking = false
+  }
+
+  const requestUpdate = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateSinkEffect)
+      ticking = true
+    }
+  }
+
+  window.addEventListener('scroll', requestUpdate, { passive: true })
+  window.addEventListener('resize', requestUpdate)
+
+  updateSinkEffect()
+}

@@ -97,3 +97,141 @@ img {
     font-size: 9px;
   }
 }
+
+
+
+.luxury-texture {
+  background-color: #292828;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 235, 213, 0.06), transparent 28%),
+    radial-gradient(circle at 80% 70%, rgba(255, 235, 213, 0.04), transparent 30%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.018) 0px,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+}
+
+.slow-image-zoom {
+  animation: slow-image-zoom 14s ease-in-out infinite alternate;
+}
+
+@keyframes slow-image-zoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.luxury-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 35%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(247, 242, 232, 0.8),
+    transparent
+  );
+  animation: line-shine 3.5s ease-in-out infinite;
+}
+
+@keyframes line-shine {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  60%, 100% {
+    transform: translateX(320%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slow-image-zoom,
+  .luxury-line::after {
+    animation: none;
+  }
+}
+
+
+.retreat-depth-image {
+  transform: scale(var(--image-scale, 1.04)) translate3d(0, var(--image-y, 0px), 0);
+  filter: brightness(var(--image-brightness, 0.9));
+  transition: filter 0.15s linear;
+  will-change: transform, filter;
+}
+
+.retreat-depth-card {
+  transform: translate3d(0, var(--card-y, 0px), 0) scale(var(--card-scale, 1));
+  opacity: var(--card-opacity, 1);
+  will-change: transform, opacity;
+}
+
+.retreat-depth-section {
+  --image-scale: 1.04;
+  --image-y: 0px;
+  --image-brightness: 0.9;
+  --card-y: 0px;
+  --card-scale: 1;
+  --card-opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .retreat-depth-image,
+  .retreat-depth-card {
+    transform: none;
+    transition: none;
+  }
+}
+
+
+
+.retreat-sink-section {
+  --sink-progress: 0;
+}
+
+.retreat-sink-image {
+  transform:
+    scale(calc(1.03 + (var(--sink-progress) * 0.16)))
+    translate3d(0, calc(var(--sink-progress) * -32px), 0);
+  filter:
+    brightness(calc(0.9 - (var(--sink-progress) * 0.22)))
+    blur(calc(var(--sink-progress) * 2px));
+  will-change: transform, filter;
+}
+
+.retreat-sink-bg {
+  opacity: calc(var(--sink-progress) * 0.82);
+  will-change: opacity;
+}
+
+.retreat-sink-card {
+  transform:
+    translate3d(0, calc(var(--sink-progress) * -80px), 0)
+    scale(calc(1 - (var(--sink-progress) * 0.08)));
+  opacity: calc(1 - (var(--sink-progress) * 0.55));
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .retreat-sink-image,
+  .retreat-sink-card {
+    transform: none;
+    filter: none;
+  }
+
+  .retreat-sink-bg {
+    opacity: 0.35;
+  }
+}
