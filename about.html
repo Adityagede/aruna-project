@@ -439,85 +439,124 @@
 </header>
 
 <!-- ABOUT HERO -->
-<section class="relative overflow-hidden bg-[#07150F] px-5 pb-28 pt-20 text-[#F4EBDD] md:px-8 md:pt-24 xl:px-12 xl:pb-24">
+<!-- OUR STORY SECTION -->
+<section id="our-story" class="relative overflow-hidden bg-[#07150F] px-5 py-24 text-[#F4EBDD] md:px-8 xl:px-12">
 
-  <!-- soft texture / glow -->
-  <div class="pointer-events-none absolute inset-0 opacity-70">
-    <div class="absolute left-0 top-0 h-72 w-72 rounded-full bg-amber-100/5 blur-3xl"></div>
-    <div class="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-emerald-200/5 blur-3xl"></div>
-  </div>
+  <!-- subtle top blend -->
+  <div class="pointer-events-none absolute left-0 top-0 h-32 w-full bg-gradient-to-b from-[#07150F] to-transparent"></div>
 
-  <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-12 xl:grid-cols-[0.95fr_1.05fr] xl:gap-16">
+  <div class="relative z-10 mx-auto max-w-7xl">
 
-    <!-- TEXT -->
-    <div data-aos="fade-up">
-      <div class="mb-8 flex items-center gap-5">
-        <p class="text-[10px] font-semibold uppercase tracking-[0.4em] text-amber-100">
-          About Aruna
-        </p>
-
-        <div class="h-px flex-1 bg-white/15"></div>
-      </div>
-
-      <h1 class="max-w-4xl font-serif text-[clamp(3.4rem,14vw,5.8rem)] leading-[0.95] text-[#FFEBD5] md:text-[5.5rem] xl:text-[6.4rem]">
-        A peaceful retreat shaped by Ubud’s tropical rhythm.
-      </h1>
-
-      <p class="mt-8 max-w-2xl text-base leading-8 text-white/70 md:text-lg">
-        Aruna Ubud Retreat is designed as a calm escape surrounded by greenery,
-        natural textures, and warm Balinese hospitality — a place to slow down,
-        reconnect, and experience the softer side of Bali.
+    <!-- SECTION TITLE -->
+    <div class="mx-auto max-w-3xl text-center" data-aos="fade-up">
+      <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.38em] text-amber-100">
+        Our Story
       </p>
 
-      <div class="mt-10 flex flex-col gap-3 sm:flex-row">
-        <a
-          href="#our-story"
-          class="rounded-xl bg-[#F7F2E8] px-6 py-3 text-center text-sm font-semibold text-black transition hover:bg-amber-200"
-        >
-          Our Story
-        </a>
-
-        <a
-          href="./index.html#accommodation"
-          class="rounded-xl border border-white/25 px-6 py-3 text-center text-sm font-semibold text-white/80 transition hover:bg-white/10 hover:text-amber-100"
-        >
-          Explore Accommodation
-        </a>
-      </div>
+      <h2 class="font-serif text-4xl leading-tight text-[#FFEBD5] md:text-5xl xl:text-6xl">
+        A slower way to stay in Ubud
+      </h2>
     </div>
 
-    <!-- IMAGE -->
-    <div class="relative mx-auto w-full max-w-md xl:max-w-none" data-aos="fade-up" data-aos-delay="120">
-      <div class="relative overflow-hidden rounded-t-[7rem] border border-white/10 aspect-[4/5] xl:aspect-[5/6]">
-        <img
-          src="./images/contoh.webp"
-          width="1000"
-          height="1300"
-          alt="Tropical pathway and garden at Aruna Ubud Retreat"
-          class="h-full w-full object-cover object-center"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
+    <!-- INTRO BLOCK -->
+    <div class="mt-16 grid gap-10 lg:grid-cols-[0.8fr_1px_1fr] lg:items-center lg:gap-12">
 
-        <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#07150F]/65"></div>
-      </div>
-
-      <!-- floating detail card -->
-      <div class="absolute bottom-6 left-6 right-6 border border-white/10 bg-[#07150F]/80 p-5 backdrop-blur-md xl:left-auto xl:right-8 xl:w-72">
-        <p class="text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-100">
-          Ubud, Bali
-        </p>
-
-        <p class="mt-3 text-sm leading-6 text-white/70">
-          A retreat made for slow mornings, warm stays, and quiet tropical moments.
+      <!-- LEFT QUOTE -->
+      <div data-aos="fade-up">
+        <p class="max-w-md font-serif text-2xl italic leading-snug tracking-[0.08em] text-[#FFEBD5] md:text-3xl">
+          An invitation to slow down, breathe deeply, and feel closer to nature.
         </p>
       </div>
+
+      <!-- CENTER LINE DESKTOP -->
+      <div class="hidden h-56 w-px bg-white/20 lg:block"></div>
+
+      <!-- RIGHT TEXT -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <p class="max-w-xl text-sm leading-7 text-white/65 md:text-base md:leading-8">
+          Aruna Ubud Retreat was created as a peaceful hideaway for travelers who seek calm,
+          comfort, and a deeper connection with Bali’s natural beauty. Surrounded by tropical
+          greenery and warm textures, every space is shaped to feel quiet, personal, and close
+          to the rhythm of Ubud.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- STORY TIMELINE -->
+    <div class="story-thread relative mt-20 lg:mt-24">
+
+      <!-- FIRST IMAGE CENTER -->
+      <div class="relative mx-auto max-w-sm pl-12 lg:pl-0" data-aos="fade-up">
+        <div class="story-image overflow-hidden rounded-[1.5rem] border border-white/10">
+          <img
+            src="./images/about-story.webp"
+            width="900"
+            height="1200"
+            alt="Bali tropical scenery near Aruna Ubud Retreat"
+            class="aspect-[4/5] h-full w-full object-cover object-center"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <!-- small dot mobile -->
+        <div class="absolute left-[0.95rem] top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-[#F7F2E8] lg:hidden"></div>
+      </div>
+
+      <!-- SECOND STORY ROW -->
+      <div class="mt-20 grid gap-12 lg:mt-24 lg:grid-cols-2 lg:items-center lg:gap-20">
+
+        <!-- TEXT LEFT -->
+        <div class="relative pl-12 lg:pl-0" data-aos="fade-up">
+          <div class="absolute left-[0.95rem] top-2 h-2.5 w-2.5 rounded-full bg-[#F7F2E8] lg:hidden"></div>
+
+          <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-100">
+            Rooted in Calm
+          </p>
+
+          <h3 class="max-w-lg font-serif text-3xl leading-tight text-[#FFEBD5] md:text-4xl">
+            A place designed for quiet mornings and warm evenings.
+          </h3>
+
+          <p class="mt-6 max-w-xl text-sm leading-7 text-white/65 md:text-base md:leading-8">
+            From the first step into the garden to the final evening light, Aruna invites guests
+            to experience Ubud at a slower pace. The retreat blends natural materials, soft
+            surroundings, and thoughtful hospitality to create a stay that feels grounded,
+            intimate, and restful.
+          </p>
+        </div>
+
+        <!-- IMAGE RIGHT -->
+        <div class="story-image overflow-hidden rounded-[1.5rem] border border-white/10" data-aos="fade-up" data-aos-delay="120">
+          <img
+            src="./images/staying-content.webp"
+            width="1200"
+            height="850"
+            alt="Tropical garden and villa pathway at Aruna Ubud Retreat"
+            class="aspect-[4/3] h-full w-full object-cover object-center"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+      </div>
+
+      <!-- SIGNATURE / CLOSING -->
+      <div class="mx-auto mt-20 max-w-2xl text-center lg:mt-24" data-aos="fade-up">
+        <p class="font-serif text-3xl italic leading-snug text-[#FFEBD5] md:text-4xl">
+          Aruna Ubud Retreat
+        </p>
+
+        <p class="mx-auto mt-5 max-w-md text-sm leading-7 text-white/55">
+          A calm tropical stay shaped by nature, comfort, and the softer side of Bali.
+        </p>
+      </div>
+
     </div>
 
   </div>
 </section>
-
     <main>
         
         <!-- OUR PHILOSOPHY -->
