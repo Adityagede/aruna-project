@@ -251,7 +251,7 @@ if (retreatSinkSection) {
     const scrollable = sectionHeight - viewportHeight
 
     if (scrollable <= 0) return
-
+    
     const progress = clamp(-rect.top / scrollable, 0, 1)
 
     retreatSinkSection.style.setProperty('--sink-progress', progress.toFixed(3))
