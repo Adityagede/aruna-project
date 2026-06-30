@@ -121,6 +121,33 @@ Alpine.data('floatingWhatsApp', () => ({
   },
 }))
 
+Alpine.data('contactForm', () => ({
+  name: '',
+  email: '',
+  phone: '',
+  message: '',
+
+  sendToWhatsApp() {
+    const phoneNumber = '6281234567890'
+
+    const text = `
+Hello Aruna Ubud Retreat,
+
+I would like to plan my stay.
+
+Name: ${this.name}
+Email: ${this.email}
+Phone: ${this.phone}
+
+Message:
+${this.message}
+    `.trim()
+
+    const encodedText = encodeURIComponent(text)
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank')
+  },
+}))
+
 Alpine.start()
 
 // =========================
@@ -251,7 +278,7 @@ if (retreatSinkSection) {
     const scrollable = sectionHeight - viewportHeight
 
     if (scrollable <= 0) return
-    
+
     const progress = clamp(-rect.top / scrollable, 0, 1)
 
     retreatSinkSection.style.setProperty('--sink-progress', progress.toFixed(3))

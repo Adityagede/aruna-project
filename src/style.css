@@ -457,3 +457,77 @@ img {
     transition: none;
   }
 }
+
+
+
+
+/*page contact */
+.contact-input {
+  width: 100%;
+  border-bottom: 1px solid rgba(247, 242, 232, 0.18);
+  background: transparent;
+  padding: 0.9rem 0;
+  font-size: 0.875rem;
+  color: #f4ebdd;
+  outline: none;
+  transition: border-color 300ms ease;
+}
+
+.contact-input::placeholder {
+  color: rgba(244, 235, 221, 0.35);
+}
+
+.contact-input:focus {
+  border-color: rgba(251, 191, 36, 0.75);
+}
+
+.contact-card-image img {
+  transition:
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-card-image:hover img {
+  transform: scale(1.045);
+  filter: brightness(0.9);
+}
+
+.contact-soft-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-soft-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 30%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(247, 242, 232, 0.75),
+    transparent
+  );
+  animation: contact-line-move 4s ease-in-out infinite;
+}
+
+@keyframes contact-line-move {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  55%,
+  100% {
+    transform: translateX(360%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-soft-line::after {
+    animation: none;
+  }
+
+  .contact-card-image img {
+    transition: none;
+  }
+}
