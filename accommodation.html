@@ -1,0 +1,1173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Aruna Ubud Retreat</title>
+    <link rel="icon" href="/icons/favicon.png" />
+    <script type="module" crossorigin src="/aruna-project/assets/main-BwT_jgG_.js"></script>
+    <link rel="stylesheet" crossorigin href="/aruna-project/assets/main-AvfzOLCC.css">
+  </head>
+
+  <body class="bg-[#07150F] text-[#F4EBDD]">
+    <!-- Navbar bisa copy dari index.html -->
+     <!-- FLOATING WHATSAPP -->
+
+    <!-- MOBILE BOOK NOW BAR -->
+ <div
+  x-data
+  x-init="setTimeout(() => {
+    if (window.scrollY > 10) {
+      $store.mobileCta.reveal()
+    }
+  }, 100)"
+  @scroll.window.once="$store.mobileCta.reveal()"
+>
+</div>
+<div
+  x-data
+  x-cloak
+  x-show="$store.mobileCta.bookNowVisible"
+  x-transition:enter="transition ease-out duration-500"
+  x-transition:enter-start="translate-y-full opacity-0"
+  x-transition:enter-end="translate-y-0 opacity-100"
+  class="fixed bottom-0 left-0 z-900 w-full border-t border-white/10 bg-[#7A4700] px-5 py-3 xl:hidden"
+
+>
+  <a
+    href="#contact"
+    class="block w-full rounded-md text-center text-base font-semibold text-[#F7F2E8]"
+  >
+    Book Now
+  </a>
+</div>
+
+
+<div
+  x-data="floatingWhatsApp"
+  class="fixed right-5 z-[999] flex flex-col items-end transition-all duration-500 ease-out xl:bottom-6 "
+  :class="$store.mobileCta.bookNowVisible ? 'bottom-20' : 'bottom-5'">
+  <!-- WhatsApp Card -->
+  <div
+    x-cloak
+    x-show="open"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 translate-y-4 scale-95"
+    x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+    x-transition:leave-end="opacity-0 translate-y-4 scale-95"
+    @click.outside="close"
+    class="mb-4 w-72 overflow-hidden rounded-2xl border border-white/10 bg-[#07150F]/95 text-[#F4EBDD] shadow-2xl backdrop-blur-xl"
+  >
+    <div class="border-b border-white/10 bg-[#0D2418] px-5 py-4">
+      <div class="flex items-center justify-between gap-4">
+        <div>
+          <p class="text-sm font-semibold text-amber-100">
+            Aruna Ubud Retreat
+          </p>
+        
+          <p class="mt-1 text-xs text-white/60">
+            Usually replies within a few minutes
+          </p>
+        </div>
+
+        <button
+          type="button"
+          @click="close"
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-white/20 hover:text-white"
+          aria-label="Close WhatsApp popup"
+        >
+          ×
+        </button>
+      </div>
+    </div>
+
+    <div class="px-5 py-5">
+      <p class="text-sm leading-6 text-white/80">
+        Hello! Need help with room availability, special offers, or booking information?
+      </p>
+
+      <a
+        :href="whatsappUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-5 flex items-center justify-center gap-2 rounded-xl bg-[#D2D2D2] px-5 py-3 text-sm font-semibold text-black transition duration-300 hover:scale-[1.02] hover:bg-[#2FE374]"
+      >
+        <!-- WhatsApp SVG Icon -->
+        <svg
+          class="h-5 w-5"
+          viewBox="0 0 32 32"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path d="M16.04 3C9.39 3 4 8.31 4 14.86c0 2.24.64 4.34 1.75 6.13L4.2 29l8.21-1.52a12.24 12.24 0 0 0 3.63.55C22.69 28.03 28 22.72 28 16.17S22.69 3 16.04 3Zm0 22.94c-1.2 0-2.38-.28-3.44-.82l-.49-.25-4.87.9.92-4.73-.31-.5a10.56 10.56 0 0 1-1.69-5.68c0-5.39 4.43-9.78 9.88-9.78s9.88 4.39 9.88 9.78-4.43 11.08-9.88 11.08Z"/>
+          <path d="M21.55 18.25c-.3-.15-1.76-.86-2.03-.96-.27-.1-.47-.15-.67.15-.2.29-.77.96-.95 1.16-.17.2-.35.22-.65.07-.3-.15-1.27-.46-2.42-1.45-.89-.78-1.49-1.75-1.67-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.59-.92-2.18-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.29-1.05 1.01-1.05 2.46s1.08 2.86 1.23 3.05c.15.2 2.13 3.19 5.17 4.47.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.76-.71 2.01-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35Z"/>
+        </svg>
+
+        Start Chat
+      </a>
+    </div>
+  </div>
+
+  <!-- Floating Button -->
+  
+  <button
+    type="button"
+    @click="toggle"
+    class="group flex h-14 w-14 items-center justify-center rounded-full bg-[#D2D2D2] text-black shadow-2xl transition duration-300 hover:scale-110 hover:bg-[#D2D2D2]"
+    aria-label="Open WhatsApp chat"
+  >
+    <svg
+      x-show="!open"
+      x-transition.opacity.duration.200ms
+      class="h-7 w-7"
+      viewBox="0 0 32 32"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path d="M16.04 3C9.39 3 4 8.31 4 14.86c0 2.24.64 4.34 1.75 6.13L4.2 29l8.21-1.52a12.24 12.24 0 0 0 3.63.55C22.69 28.03 28 22.72 28 16.17S22.69 3 16.04 3Zm0 22.94c-1.2 0-2.38-.28-3.44-.82l-.49-.25-4.87.9.92-4.73-.31-.5a10.56 10.56 0 0 1-1.69-5.68c0-5.39 4.43-9.78 9.88-9.78s9.88 4.39 9.88 9.78-4.43 11.08-9.88 11.08Z"/>
+      <path d="M21.55 18.25c-.3-.15-1.76-.86-2.03-.96-.27-.1-.47-.15-.67.15-.2.29-.77.96-.95 1.16-.17.2-.35.22-.65.07-.3-.15-1.27-.46-2.42-1.45-.89-.78-1.49-1.75-1.67-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.59-.92-2.18-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.29-1.05 1.01-1.05 2.46s1.08 2.86 1.23 3.05c.15.2 2.13 3.19 5.17 4.47.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.76-.71 2.01-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35Z"/>
+    </svg>
+
+    <span
+      x-show="open"
+      x-transition.opacity.duration.200ms
+      class="text-3xl leading-none"
+    >
+      ×
+    </span>
+  </button>
+</div>
+
+<div class="relative z-50 bg-[#F4EBDD] px-5 py-4 text-left text-[7px] md:text-[12px] font-medium uppercase tracking-wide text-[#6c471a]">
+  <a href="#contact" class="transition hover:text-[#c8730b]">
+     Check-in
+  </a>
+
+  <span class="mx-4 text-[#6c471a]">|</span>
+
+  <a href="#contact" class="transition hover:text-[#c8730b]">
+    Check Out
+  </a>
+
+  <span class="mx-4 text-[#6c471a]">|</span>
+
+  <a href="#offers" class="transition-all hover:text-[#c8730b]">
+    guest
+  </a>
+
+   <span class="mx-4 text-[#6c471a]">|</span>
+
+   <a href="#offers" class="transition  hover:text-[#c8730b]">
+    Check Availability
+  </a>
+</div>
+
+
+<nav
+  x-data="hotelNavbar"
+  @keydown.escape.window="closeAll"
+  class="sticky left-0 top-0 z-50 w-full bg-[#07150F]/90 px-5 py-4 text-[#D2D2D2] shadow-lg backdrop-blur-md md:px-8"
+>
+
+  <!-- AREA LAYAR UNTUK CLOSE MENU -->
+  <div
+    x-cloak
+    x-show="open"
+    x-transition.opacity.duration.250ms
+    @click="closeAll"
+    class="fixed inset-0 z-40 bg-black/20 lg:hidden">
+  </div>
+
+  <div class="relative z-50 mx-auto flex max-w-7xl items-center justify-between">
+
+    
+      <div class="flex items-center gap-3">
+        <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.3363 0.5C22.6987 0.5 24.784 3.15198 24.88 5.78282C24.9759 8.41366 22.9169 16.3485 19.4269 16.3485C15.937 16.3485 12.386 9.43642 12.386 6.54143C12.386 3.64645 13.9739 0.5 18.3363 0.5ZM32.8872 10.493C29.2118 12.7667 24.8538 18.115 26.3479 20.8473C27.842 23.5796 36.7348 23.6704 39.8866 22.3138C43.0341 20.9551 44.6504 17.8129 43.4202 14.2353C42.19 10.6578 37.8472 7.42683 32.8872 10.493ZM35.8078 32.5688C34.0628 30.0331 27.2509 26.8782 24.9061 28.2073C22.5591 29.5386 23.4992 37.4417 25.5387 39.6541C28.1234 42.4604 31.1989 42.8238 34.4707 40.7107C37.7425 38.5976 37.7294 35.3603 35.8078 32.5688ZM15.937 41.6299C18.681 38.1898 17.9437 29.1223 15.937 27.9685C13.9303 26.8169 7.93634 30.4409 5.31889 32.9767C0.659834 37.4903 3.97091 41.6299 5.91654 43.0605C8.835 45.2074 13.385 44.8334 15.937 41.6299ZM5.10731 24.1882C9.18617 24.1882 12.6848 23.5415 13.1603 21.4284C13.6358 19.3153 9.65949 15.9026 7.04204 15.0573C3.77023 14.0008 1.11352 15.3849 0.607484 18.3623C0.210505 20.6931 0.7449 24.1882 5.10731 24.1882Z" stroke="#D2D2D2" stroke-linejoin="round"/>
+        </svg>
+      
+
+      <p class="text-base font-semibold tracking-wide md:text-lg xl:text-[24px]">
+        Aruna Ubud Retreat
+      </p>
+      </div>
+   
+
+    <!-- DESKTOP MENU -->
+    <ul class="hidden items-center gap-8 text-lg font-semibold lg:flex lg:text-[15px] xl:text-[18px]">
+      <li><a href="./index.html" class="transition duration-300 hover:text-amber-200">Home</a></li>
+      <li><a href="./about.html" class="transition duration-300 hover:text-amber-200">About</a></li>
+      <li><a href="#accommodation" class="transition duration-300 hover:text-amber-200">Accommodation</a></li>
+      <li><a href="#offers" class="transition duration-300 hover:text-amber-200">text</a></li>
+      <li><a href="#contact" class="transition duration-300 hover:text-amber-200">Contact</a></li>
+
+      <!-- DESKTOP GALLERY DROPDOWN -->
+      <li class="relative" @click.outside="galleryOpen = false">
+        <button
+          type="button"
+          @click="toggleGallery"
+          class="flex items-center gap-1 transition duration-300 hover:text-amber-200"
+        >
+          More
+
+          <span
+            class="text-xs transition duration-300"
+            :class="galleryOpen ? 'rotate-180' : ''"
+          >
+            ▼
+          </span>
+        </button>
+
+        <div
+          x-cloak
+          x-show="galleryOpen"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 translate-y-3 scale-95"
+          x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+          x-transition:leave="transition ease-in duration-200"
+          x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+          x-transition:leave-end="opacity-0 translate-y-3 scale-95"
+          class="absolute left-0 top-full mt-7 w-56 rounded-2xl border border-white/10 bg-[#07150F]/95 p-3 shadow-2xl backdrop-blur-xl"
+        >
+          <a href="#gallery" @click="closeAll" class="block rounded-xl px-4 py-3 text-sm text-white/75 transition hover:bg-white/10 hover:text-amber-200">
+            All Gallery
+          </a>
+
+          <a href="#rooms-gallery" @click="closeAll" class="block rounded-xl px-4 py-3 text-sm text-white/75 transition hover:bg-white/10 hover:text-amber-200">
+            Rooms
+          </a>
+
+          <a href="#villa-gallery" @click="closeAll" class="block rounded-xl px-4 py-3 text-sm text-white/75 transition hover:bg-white/10 hover:text-amber-200">
+            Villas
+          </a>
+        </div>
+      </li>
+    </ul>
+
+    <a href="#contact" class="hidden rounded-md bg-amber-100 px-5 py-2 text-sm font-semibold text-black transition hover:bg-amber-200 lg:inline-block">
+      Book Now
+    </a>
+
+    <!-- HAMBURGER -->
+    <button
+      type="button"
+      @click="toggleMenu"
+      class="relative flex h-10 w-10 items-center justify-center rounded-md border border-white/20 text-xl transition duration-300 hover:bg-white/10 lg:hidden"
+      aria-label="Toggle menu"
+    >
+      <span
+        x-show="!open"
+        x-transition.opacity.duration.200ms
+        class="absolute"
+      >
+        ☰
+      </span>
+
+      <span
+        x-show="open"
+        x-transition.opacity.duration.200ms
+        class="absolute text-2xl"
+      >
+        ×
+      </span>
+    </button>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div
+    x-cloak
+    x-show="open"
+    x-collapse.duration.350ms
+    class="relative z-50 overflow-hidden lg:hidden"
+  >
+    <div
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="opacity-0 -translate-y-2 scale-95"
+      x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+      class="mt-5 rounded-2xl border border-white/10 bg-[#07150F]/95 p-5 shadow-2xl backdrop-blur-xl"
+    >
+      <ul class="space-y-4 text-sm font-medium">
+        <li>
+          <a href="./index.html" @click="closeAll" class="block transition duration-300 hover:translate-x-1 hover:text-amber-200">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="./about.html" @click="closeAll" class="block transition duration-300 hover:translate-x-1 hover:text-amber-200">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="#accommodation" @click="closeAll" class="block transition duration-300 hover:translate-x-1 hover:text-amber-200">
+            Accommodation
+          </a>
+        </li>
+
+        <li>
+          <a href="#offers" @click="closeAll" class="block transition duration-300 hover:translate-x-1 hover:text-amber-200">
+            Offers
+          </a>
+        </li>
+
+        <li>
+          <a href="#contact" @click="closeAll" class="block transition duration-300 hover:translate-x-1 hover:text-amber-200">
+            Contact
+          </a>
+        </li>
+
+        <!-- MOBILE GALLERY DROPDOWN -->
+        <li>
+          <button
+            type="button"
+            @click="toggleMobileGallery"
+            class="flex w-full items-center justify-between transition duration-300 hover:text-amber-200"
+          >
+            <span>More</span>
+
+            <span
+              class="text-xs transition duration-300"
+              :class="mobileGalleryOpen ? 'rotate-180' : ''"
+            >
+              ▼
+            </span>
+          </button>
+
+          <div
+            x-cloak
+            x-show="mobileGalleryOpen"
+            x-collapse.duration.300ms
+            class="overflow-hidden"
+          >
+            <div class="mt-3 space-y-4 border-l border-white/20 pl-4">
+              <a href="#gallery" @click="closeAll" class="block text-white/70 transition hover:translate-x-1 hover:text-amber-200">
+                All Gallery
+              </a>
+
+              <a href="#rooms-gallery" @click="closeAll" class="block text-white/70 transition hover:translate-x-1 hover:text-amber-200">
+                Rooms
+              </a>
+
+              <a href="#villa-gallery" @click="closeAll" class="block text-white/70 transition hover:translate-x-1 hover:text-amber-200">
+                Villas
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <a
+        href="#contact"
+        @click="closeAll"
+        class="mt-6 block rounded-md bg-amber-100 px-5 py-3 text-center text-sm font-semibold text-black transition duration-300 hover:bg-amber-200"
+      >
+        Book Now
+      </a>
+      <div class="flex gap-4 justify-center pt-7 ">
+      <div class="border border-white/40 p-1 rounded-lg">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M26.6667 5C31.2667 5 35 8.73333 35 13.3333V26.6667C35 31.2667 31.2667 35 26.6667 35H13.3333C8.73333 35 5 31.2667 5 26.6667V13.3333C5 8.73333 8.73333 5 13.3333 5H20H26.6667Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20.0002 13.333C23.6835 13.333 26.6668 16.3163 26.6668 19.9997C26.6668 23.683 23.6835 26.6663 20.0002 26.6663C16.3168 26.6663 13.3335 23.683 13.3335 19.9997C13.3335 16.3163 16.3168 13.333 20.0002 13.333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28.3335 14.167C29.7142 14.167 30.8335 13.0477 30.8335 11.667C30.8335 10.2863 29.7142 9.16699 28.3335 9.16699C26.9528 9.16699 25.8335 10.2863 25.8335 11.667C25.8335 13.0477 26.9528 14.167 28.3335 14.167Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="border border-white/40 p-1 rounded-lg">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.01 7.15821C15.56 7.15821 11.1133 8.46487 7.26833 11.0799H0L3.27167 14.6382C1.78101 15.9963 0.736028 17.7736 0.274001 19.7365C-0.188027 21.6995 -0.0454908 23.7562 0.682885 25.6367C1.41126 27.5171 2.69141 29.1333 4.35515 30.2728C6.0189 31.4123 7.98843 32.0219 10.005 32.0215C12.5246 32.0231 14.9512 31.0703 16.7967 29.3549L20 32.8415L23.2033 29.3582C25.0471 31.0726 27.4723 32.0244 29.99 32.0215C32.6416 32.0215 35.1846 30.9684 37.0599 29.0938C38.9352 27.2191 39.9891 24.6765 39.99 22.0249C39.9917 20.6342 39.7025 19.2586 39.1407 17.9864C38.579 16.7143 37.7572 15.5738 36.7283 14.6382L40 11.0799H32.75C28.9937 8.52245 24.5542 7.15586 20.01 7.15821ZM20 10.4249C22.5517 10.4249 25.105 10.9299 27.5067 11.9299C23.2383 13.5632 20 17.3832 20 21.8332C20 17.3815 16.7633 13.5632 12.4933 11.9299C14.8716 10.9377 17.423 10.425 20 10.4249ZM10.0033 15.2615C10.8917 15.2615 11.7714 15.4365 12.5922 15.7765C13.413 16.1165 14.1587 16.6148 14.7869 17.243C15.4151 17.8712 15.9134 18.6169 16.2534 19.4377C16.5934 20.2585 16.7683 21.1381 16.7683 22.0265C16.7683 22.9149 16.5934 23.7946 16.2534 24.6154C15.9134 25.4362 15.4151 26.1819 14.7869 26.8101C14.1587 27.4383 13.413 27.9366 12.5922 28.2766C11.7714 28.6166 10.8917 28.7915 10.0033 28.7915C8.20914 28.7915 6.48844 28.0788 5.21976 26.8101C3.95107 25.5414 3.23833 23.8207 3.23833 22.0265C3.23833 20.2323 3.95107 18.5116 5.21976 17.243C6.48844 15.9743 8.20914 15.2615 10.0033 15.2615ZM29.99 15.2649C30.8781 15.2645 31.7575 15.4391 32.5781 15.7787C33.3987 16.1182 34.1444 16.6161 34.7725 17.2438C35.4007 17.8715 35.8991 18.6168 36.2393 19.4372C36.5794 20.2575 36.7547 21.1368 36.755 22.0249C36.7553 22.9129 36.5807 23.7924 36.2412 24.613C35.9016 25.4335 35.4038 26.1792 34.7761 26.8074C34.1484 27.4356 33.403 27.934 32.5827 28.2742C31.7624 28.6143 30.8831 28.7895 29.995 28.7899C28.2015 28.7905 26.4811 28.0787 25.2125 26.811C23.9438 25.5432 23.2307 23.8234 23.23 22.0299C23.2293 20.2363 23.9412 18.516 25.2089 17.2473C26.4767 15.9786 28.1965 15.2655 29.99 15.2649ZM10.0033 18.4815C9.0627 18.4815 8.16059 18.8552 7.49546 19.5203C6.83033 20.1855 6.45667 21.0876 6.45667 22.0282C6.45667 22.9688 6.83033 23.8709 7.49546 24.5361C8.16059 25.2012 9.0627 25.5749 10.0033 25.5749C10.944 25.5749 11.8461 25.2012 12.5112 24.5361C13.1763 23.8709 13.55 22.9688 13.55 22.0282C13.55 21.0876 13.1763 20.1855 12.5112 19.5203C11.8461 18.8552 10.944 18.4815 10.0033 18.4815ZM29.99 18.4815C29.0494 18.4815 28.1473 18.8552 27.4821 19.5203C26.817 20.1855 26.4433 21.0876 26.4433 22.0282C26.4433 22.9688 26.817 23.8709 27.4821 24.5361C28.1473 25.2012 29.0494 25.5749 29.99 25.5749C30.9306 25.5749 31.8327 25.2012 32.4979 24.5361C33.163 23.8709 33.5367 22.9688 33.5367 22.0282C33.5367 21.0876 33.163 20.1855 32.4979 19.5203C31.8327 18.8552 30.9306 18.4815 29.99 18.4815Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="border border-white/40 p-1 rounded-lg">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M31.7498 8.1831C30.2216 6.63994 28.4015 5.41637 26.3957 4.5837C24.3898 3.75103 22.2383 3.3259 20.0665 3.3331C10.9665 3.3331 3.54984 10.7498 3.54984 19.8498C3.54984 22.7664 4.3165 25.5998 5.74984 28.0998L3.4165 36.6664L12.1665 34.3664C14.5832 35.6831 17.2998 36.3831 20.0665 36.3831C29.1665 36.3831 36.5832 28.9664 36.5832 19.8664C36.5832 15.4498 34.8665 11.2998 31.7498 8.1831ZM20.0665 33.5831C17.5998 33.5831 15.1832 32.9164 13.0665 31.6664L12.5665 31.3664L7.3665 32.7331L8.74984 27.6664L8.4165 27.1498C7.04575 24.9615 6.31805 22.4319 6.3165 19.8498C6.3165 12.2831 12.4832 6.11643 20.0498 6.11643C23.7165 6.11643 27.1665 7.54976 29.7498 10.1498C31.0292 11.4229 32.043 12.9373 32.7325 14.6053C33.4221 16.2733 33.7735 18.0616 33.7665 19.8664C33.7998 27.4331 27.6332 33.5831 20.0665 33.5831ZM27.5998 23.3164C27.1832 23.1164 25.1498 22.1164 24.7832 21.9664C24.3998 21.8331 24.1332 21.7664 23.8498 22.1664C23.5665 22.5831 22.7832 23.5164 22.5498 23.7831C22.3165 24.0664 22.0665 24.0998 21.6498 23.8831C21.2332 23.6831 19.8998 23.2331 18.3332 21.8331C17.0998 20.7331 16.2832 19.3831 16.0332 18.9664C15.7998 18.5498 15.9998 18.3331 16.2165 18.1164C16.3998 17.9331 16.6332 17.6331 16.8332 17.3998C17.0332 17.1664 17.1165 16.9831 17.2498 16.7164C17.3832 16.4331 17.3165 16.1998 17.2165 15.9998C17.1165 15.7998 16.2832 13.7664 15.9498 12.9331C15.6165 12.1331 15.2665 12.2331 15.0165 12.2164H14.2165C13.9332 12.2164 13.4998 12.3164 13.1165 12.7331C12.7498 13.1498 11.6832 14.1498 11.6832 16.1831C11.6832 18.2164 13.1665 20.1831 13.3665 20.4498C13.5665 20.7331 16.2832 24.8998 20.4165 26.6831C21.3998 27.1164 22.1665 27.3664 22.7665 27.5498C23.7498 27.8664 24.6498 27.8164 25.3665 27.7164C26.1665 27.5998 27.8165 26.7164 28.1498 25.7498C28.4998 24.7831 28.4998 23.9664 28.3832 23.7831C28.2665 23.5998 28.0165 23.5164 27.5998 23.3164Z" fill="white"/>
+        </svg>
+      </div>
+         <div class="border border-white/40 p-1 rounded-lg">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M28.3335 6.66699H25.0002C20.8335 6.66699 18.3335 9.16699 18.3335 13.3337V33.3337" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M13.3335 20H25.0002" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HOMEPAGE / HERO -->
+ <header class="relative h-[350px] overflow-hidden bg-[#07150F] text-[#F4EBDD] md:h-[560px] xl:h-[400px]">
+  <!-- HERO IMAGE -->
+
+
+   <div class="imghero absolute inset-0 z-0">
+    <div class="swiper hero-swiper h-full w-full">
+      <div class="swiper-wrapper h-full">
+
+        <div class="swiper-slide h-full">
+          <img
+            src="/aruna-project/images/pgacc-img.webp"
+            width="1920"
+            height="1080"
+            alt="Tropical jungle view at Aruna Ubud Retreat"
+            class="block h-full w-full object-cover"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
+
+        <div class="swiper-slide h-full">
+          <img
+            src="/aruna-project/images/pgacc1-img.webp"
+            width="1920"
+            height="1080"
+            alt="Private pool villa surrounded by tropical garden"
+            class="block h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="swiper-slide h-full">
+          <img
+            src="/aruna-project/images/pgacc2-img.webp"
+            width="1920"
+            height="1080"
+            alt="Peaceful villa terrace in Ubud greenery"
+            class="block h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GLOBAL OVERLAY -->
+    <div class="pointer-events-none absolute inset-0 z-10 bg-black/30"></div>
+
+    
+  </div>
+</header>
+
+    <main>
+
+       
+        
+<section id="rooms" class="relative bg-[#292828]  py-20 text-[#F4EBDD] ">
+
+  <!-- TRANSITION LAYER DARI SECTION SEBELUMNYA -->
+  <div class="pointer-events-none absolute left-0 top-0 h-24 w-full bg-gradient-to-b from-[#07150F] to-[#292828]"></div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-5">
+
+    <!-- SECTION HEADER -->
+    <div class="mx-auto max-w-2xl text-center" data-aos="fade-up">
+      <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-100">
+        Stay With Us
+      </p>
+
+      <h2 class="font-serif text-4xl leading-tight text-[#FFEBD5] md:text-5xl">
+        Rooms Made for Slow Mornings
+      </h2>
+
+      <p class="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/70 md:text-base">
+        Choose a peaceful stay surrounded by tropical greenery, warm textures, and the quiet rhythm of Ubud.
+      </p>
+    </div>
+
+    <!-- CARDS WRAPPER -->
+    <div class="-mx-5 mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 pb-6 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 xl:grid-cols-3">
+
+      <!-- CARD 1 -->
+      <article class="min-w-[82%] snap-center overflow-hidden rounded-[1.75rem] bg-[#4A4747] shadow-2xl md:min-w-0" data-aos="fade-up">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img
+            src="/aruna-project/images/card1.webp"
+            width="900"
+            height="700"
+            alt="Garden View Villa at Aruna Ubud Retreat"
+            class="h-full w-full object-cover transition duration-700 hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/35"></div>
+        </div>
+
+        <div class="p-6">
+          <p class="mb-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-amber-100">
+            Garden Escape
+          </p>
+
+          <h3 class="font-serif text-2xl text-[#FFEBD5]">
+            Garden View Villa
+          </h3>
+
+          <p class="mt-3 text-sm leading-6 text-white/70">
+            A calm villa with a private terrace, soft natural light, and peaceful garden views for slow mornings in Ubud.
+          </p>
+
+          <div class="mt-6 grid gap-3 text-sm text-white/75">
+            <div class="flex items-center gap-3">
+              <span><svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.6471 9.32109C18.2711 9.32109 18.8696 9.5666 19.3108 10.0036C19.7521 10.4406 20 11.0333 20 11.6514V17.477C20 18.0951 19.7521 18.6878 19.3108 19.1248C18.8696 19.5618 18.2711 19.8073 17.6471 19.8073H14.1176C13.4936 19.8073 12.8951 19.5618 12.4539 19.1248C12.0126 18.6878 11.7647 18.0951 11.7647 17.477V11.6514C11.7647 11.0333 12.0126 10.4406 12.4539 10.0036C12.8951 9.5666 13.4936 9.32109 14.1176 9.32109H17.6471ZM10.7929 10.4862C10.6584 10.8603 10.5892 11.2543 10.5882 11.6514H2.36353C1.70353 11.6514 1.17647 12.1722 1.17647 12.8165C1.17647 14.3417 1.90941 15.4765 3.14471 16.2571C4.40353 17.0529 6.19412 17.477 8.23529 17.477C9.06824 17.477 9.85882 17.4036 10.5882 17.2673V17.477C10.5882 17.8068 10.6365 18.1249 10.7224 18.4266C9.90139 18.5711 9.06911 18.6432 8.23529 18.6422C6.05294 18.6422 4.02 18.1924 2.51177 17.2405C0.98 16.2735 0 14.7856 0 12.8165C0 11.5197 1.06235 10.4862 2.36353 10.4862H10.7929ZM14.7059 11.6514C14.5499 11.6514 14.4003 11.7127 14.2899 11.822C14.1796 11.9312 14.1176 12.0794 14.1176 12.2339C14.1176 12.3884 14.1796 12.5366 14.2899 12.6459C14.4003 12.7551 14.5499 12.8165 14.7059 12.8165H17.0588C17.2148 12.8165 17.3645 12.7551 17.4748 12.6459C17.5851 12.5366 17.6471 12.3884 17.6471 12.2339C17.6471 12.0794 17.5851 11.9312 17.4748 11.822C17.3645 11.7127 17.2148 11.6514 17.0588 11.6514H14.7059ZM8.23529 0C9.48337 0 10.6803 0.49102 11.5629 1.36504C12.4454 2.23906 12.9412 3.42449 12.9412 4.66055C12.9412 5.8966 12.4454 7.08203 11.5629 7.95605C10.6803 8.83007 9.48337 9.32109 8.23529 9.32109C6.98722 9.32109 5.79026 8.83007 4.90773 7.95605C4.02521 7.08203 3.52941 5.8966 3.52941 4.66055C3.52941 3.42449 4.02521 2.23906 4.90773 1.36504C5.79026 0.49102 6.98722 0 8.23529 0ZM8.23529 1.16514C7.29924 1.16514 6.40152 1.5334 5.73962 2.18892C5.07773 2.84443 4.70588 3.73351 4.70588 4.66055C4.70588 5.58759 5.07773 6.47666 5.73962 7.13217C6.40152 7.78769 7.29924 8.15595 8.23529 8.15595C9.17135 8.15595 10.0691 7.78769 10.731 7.13217C11.3929 6.47666 11.7647 5.58759 11.7647 4.66055C11.7647 3.73351 11.3929 2.84443 10.731 2.18892C10.0691 1.5334 9.17135 1.16514 8.23529 1.16514Z" fill="white"/>
+                    </svg>
+              </span>
+              <span>2 Guests</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span><svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 18.907V10.804C0 10.271 0.0948149 9.70318 0.284445 9.10056C0.474074 8.49793 0.74963 8.04537 1.11111 7.74286V3.60133C1.11111 2.58575 1.32482 1.73164 1.75222 1.03898C2.17963 0.346328 2.70667 0 3.33333 0H8.33333C8.7163 0 9.04333 0.127847 9.31445 0.383541C9.58482 0.638035 9.81333 0.990366 10 1.44053C10.1867 0.990366 10.4152 0.638035 10.6856 0.383541C10.9567 0.127847 11.2837 0 11.6667 0H16.6667C17.2933 0 17.8204 0.346328 18.2478 1.03898C18.6752 1.73164 18.8889 2.58575 18.8889 3.60133V7.74286C19.2511 8.04537 19.5267 8.49793 19.7156 9.10056C19.9052 9.70318 20 10.271 20 10.804V18.907C20 19.1627 19.9467 19.3763 19.84 19.548C19.7333 19.7197 19.6011 19.8061 19.4433 19.8073C19.2856 19.8085 19.1537 19.7221 19.0478 19.548C18.9419 19.3739 18.8889 19.1603 18.8889 18.907V16.206H1.11111V18.907C1.11111 19.1627 1.05778 19.3763 0.951111 19.548C0.844444 19.7197 0.712222 19.8061 0.554445 19.8073C0.396667 19.8085 0.264815 19.7221 0.158889 19.548C0.0529628 19.3739 0 19.1603 0 18.907ZM10.5556 7.20266H17.7778V3.60133C17.7778 3.09114 17.6711 2.66378 17.4578 2.31926C17.2444 1.97473 16.9807 1.80186 16.6667 1.80066H11.6667C11.3519 1.80066 11.0881 1.97353 10.8756 2.31926C10.663 2.66498 10.5563 3.09234 10.5556 3.60133V7.20266ZM2.22222 7.20266H9.44444V3.60133C9.44444 3.09114 9.33778 2.66378 9.12444 2.31926C8.91111 1.97473 8.64741 1.80186 8.33333 1.80066H3.33333C3.01852 1.80066 2.75482 1.97353 2.54222 2.31926C2.32963 2.66498 2.22296 3.09234 2.22222 3.60133V7.20266ZM1.11111 14.4053H18.8889V10.804C18.8889 10.2938 18.7822 9.86644 18.5689 9.52191C18.3556 9.17739 18.0919 9.00452 17.7778 9.00332H2.22222C1.90741 9.00332 1.6437 9.17618 1.43111 9.52191C1.21852 9.86764 1.11185 10.295 1.11111 10.804V14.4053Z" fill="white"/>
+                    </svg>
+              </span>
+              <span>King Bed</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.875 12.5V16.875H12.5M16.4766 16.4754L11.875 11.875M3.125 7.5V3.125H7.5M3.52344 3.52461L8.125 8.125M12.5 3.125H16.875V7.5M16.4754 3.52344L11.875 8.125M7.5 16.875H3.125V12.5M3.52461 16.4766L8.125 11.875" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+              </span>
+              <span>45 sqm</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.1665 6.66667C6.6665 8.33333 4.9165 13.475 3.18317 17.7833L4.75817 18.3333L5.54984 16.4167C5.94984 16.5583 6.3665 16.6667 6.6665 16.6667C15.8332 16.6667 18.3332 2.5 18.3332 2.5C17.4998 4.16667 11.6665 4.375 7.49984 5.20833C3.33317 6.04167 1.6665 9.58333 1.6665 11.25C1.6665 12.9167 3.12484 14.375 3.12484 14.375C5.83317 6.66667 14.1665 6.66667 14.1665 6.66667Z" fill="white"/>
+                </svg>
+
+              </span>
+              <span>Private garden terrace</span>
+            </div>
+          </div>
+
+          <div class="mt-7 space-y-3 border-t border-white/10 pt-5">
+            <a
+              href="#contact"
+              class="block rounded-xl border border-white/30 px-5 py-3 text-center text-sm font-semibold tracking-[0.25em] text-white transition hover:bg-white/10"
+            >
+              Explore
+            </a>
+
+            <a
+              href="#contact"
+              class="block rounded-xl bg-[#F7F2E8] px-5 py-3 text-center text-sm font-semibold tracking-[0.25em] text-black transition hover:bg-amber-200"
+            >
+              Book Now
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="min-w-[82%] snap-center overflow-hidden rounded-[1.75rem] bg-[#4A4747] shadow-2xl md:min-w-0" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img
+            src="/aruna-project/images/card2.webp"
+            width="900"
+            height="700"
+            alt="Pool Villa at Aruna Ubud Retreat"
+            class="h-full w-full object-cover transition duration-700 hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/35"></div>
+        </div>
+
+        <div class="p-6">
+          <p class="mb-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-amber-100">
+            Private Comfort
+          </p>
+
+          <h3 class="font-serif text-2xl text-[#FFEBD5]">
+            Poolside Villa
+          </h3>
+
+          <p class="mt-3 text-sm leading-6 text-white/70">
+            A warm and intimate villa designed for quiet afternoons, refreshing dips, and a deeper connection with nature.
+          </p>
+
+          <div class="mt-6 grid gap-3 text-sm text-white/75">
+            <div class="flex items-center gap-3">
+               <span><svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.6471 9.32109C18.2711 9.32109 18.8696 9.5666 19.3108 10.0036C19.7521 10.4406 20 11.0333 20 11.6514V17.477C20 18.0951 19.7521 18.6878 19.3108 19.1248C18.8696 19.5618 18.2711 19.8073 17.6471 19.8073H14.1176C13.4936 19.8073 12.8951 19.5618 12.4539 19.1248C12.0126 18.6878 11.7647 18.0951 11.7647 17.477V11.6514C11.7647 11.0333 12.0126 10.4406 12.4539 10.0036C12.8951 9.5666 13.4936 9.32109 14.1176 9.32109H17.6471ZM10.7929 10.4862C10.6584 10.8603 10.5892 11.2543 10.5882 11.6514H2.36353C1.70353 11.6514 1.17647 12.1722 1.17647 12.8165C1.17647 14.3417 1.90941 15.4765 3.14471 16.2571C4.40353 17.0529 6.19412 17.477 8.23529 17.477C9.06824 17.477 9.85882 17.4036 10.5882 17.2673V17.477C10.5882 17.8068 10.6365 18.1249 10.7224 18.4266C9.90139 18.5711 9.06911 18.6432 8.23529 18.6422C6.05294 18.6422 4.02 18.1924 2.51177 17.2405C0.98 16.2735 0 14.7856 0 12.8165C0 11.5197 1.06235 10.4862 2.36353 10.4862H10.7929ZM14.7059 11.6514C14.5499 11.6514 14.4003 11.7127 14.2899 11.822C14.1796 11.9312 14.1176 12.0794 14.1176 12.2339C14.1176 12.3884 14.1796 12.5366 14.2899 12.6459C14.4003 12.7551 14.5499 12.8165 14.7059 12.8165H17.0588C17.2148 12.8165 17.3645 12.7551 17.4748 12.6459C17.5851 12.5366 17.6471 12.3884 17.6471 12.2339C17.6471 12.0794 17.5851 11.9312 17.4748 11.822C17.3645 11.7127 17.2148 11.6514 17.0588 11.6514H14.7059ZM8.23529 0C9.48337 0 10.6803 0.49102 11.5629 1.36504C12.4454 2.23906 12.9412 3.42449 12.9412 4.66055C12.9412 5.8966 12.4454 7.08203 11.5629 7.95605C10.6803 8.83007 9.48337 9.32109 8.23529 9.32109C6.98722 9.32109 5.79026 8.83007 4.90773 7.95605C4.02521 7.08203 3.52941 5.8966 3.52941 4.66055C3.52941 3.42449 4.02521 2.23906 4.90773 1.36504C5.79026 0.49102 6.98722 0 8.23529 0ZM8.23529 1.16514C7.29924 1.16514 6.40152 1.5334 5.73962 2.18892C5.07773 2.84443 4.70588 3.73351 4.70588 4.66055C4.70588 5.58759 5.07773 6.47666 5.73962 7.13217C6.40152 7.78769 7.29924 8.15595 8.23529 8.15595C9.17135 8.15595 10.0691 7.78769 10.731 7.13217C11.3929 6.47666 11.7647 5.58759 11.7647 4.66055C11.7647 3.73351 11.3929 2.84443 10.731 2.18892C10.0691 1.5334 9.17135 1.16514 8.23529 1.16514Z" fill="white"/>
+                    </svg>
+              </span>
+              <span>2 Guests</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+             <span><svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 18.907V10.804C0 10.271 0.0948149 9.70318 0.284445 9.10056C0.474074 8.49793 0.74963 8.04537 1.11111 7.74286V3.60133C1.11111 2.58575 1.32482 1.73164 1.75222 1.03898C2.17963 0.346328 2.70667 0 3.33333 0H8.33333C8.7163 0 9.04333 0.127847 9.31445 0.383541C9.58482 0.638035 9.81333 0.990366 10 1.44053C10.1867 0.990366 10.4152 0.638035 10.6856 0.383541C10.9567 0.127847 11.2837 0 11.6667 0H16.6667C17.2933 0 17.8204 0.346328 18.2478 1.03898C18.6752 1.73164 18.8889 2.58575 18.8889 3.60133V7.74286C19.2511 8.04537 19.5267 8.49793 19.7156 9.10056C19.9052 9.70318 20 10.271 20 10.804V18.907C20 19.1627 19.9467 19.3763 19.84 19.548C19.7333 19.7197 19.6011 19.8061 19.4433 19.8073C19.2856 19.8085 19.1537 19.7221 19.0478 19.548C18.9419 19.3739 18.8889 19.1603 18.8889 18.907V16.206H1.11111V18.907C1.11111 19.1627 1.05778 19.3763 0.951111 19.548C0.844444 19.7197 0.712222 19.8061 0.554445 19.8073C0.396667 19.8085 0.264815 19.7221 0.158889 19.548C0.0529628 19.3739 0 19.1603 0 18.907ZM10.5556 7.20266H17.7778V3.60133C17.7778 3.09114 17.6711 2.66378 17.4578 2.31926C17.2444 1.97473 16.9807 1.80186 16.6667 1.80066H11.6667C11.3519 1.80066 11.0881 1.97353 10.8756 2.31926C10.663 2.66498 10.5563 3.09234 10.5556 3.60133V7.20266ZM2.22222 7.20266H9.44444V3.60133C9.44444 3.09114 9.33778 2.66378 9.12444 2.31926C8.91111 1.97473 8.64741 1.80186 8.33333 1.80066H3.33333C3.01852 1.80066 2.75482 1.97353 2.54222 2.31926C2.32963 2.66498 2.22296 3.09234 2.22222 3.60133V7.20266ZM1.11111 14.4053H18.8889V10.804C18.8889 10.2938 18.7822 9.86644 18.5689 9.52191C18.3556 9.17739 18.0919 9.00452 17.7778 9.00332H2.22222C1.90741 9.00332 1.6437 9.17618 1.43111 9.52191C1.21852 9.86764 1.11185 10.295 1.11111 10.804V14.4053Z" fill="white"/>
+                    </svg>
+              </span>
+              <span>King Bed</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+             <span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.875 12.5V16.875H12.5M16.4766 16.4754L11.875 11.875M3.125 7.5V3.125H7.5M3.52344 3.52461L8.125 8.125M12.5 3.125H16.875V7.5M16.4754 3.52344L11.875 8.125M7.5 16.875H3.125V12.5M3.52461 16.4766L8.125 11.875" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+              </span>
+              <span>50 sqm</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span>
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" fill="white"/>
+                <path d="M2 21V19C2.63333 19 3.10833 18.8333 3.425 18.5C3.74167 18.1667 4.36667 18 5.3 18C6.23333 18 6.875 18.1667 7.225 18.5C7.575 18.8333 8.05 19 8.65 19C9.25 19 9.725 18.8333 10.075 18.5C10.425 18.1667 11.0667 18 12 18C12.9333 18 13.575 18.1667 13.925 18.5C14.275 18.8333 14.75 19 15.35 19C15.95 19 16.425 18.8333 16.775 18.5C17.125 18.1667 17.7667 18 18.7 18C19.6333 18 20.2583 18.1667 20.575 18.5C20.8917 18.8333 21.3667 19 22 19V21C21.0167 21 20.371 20.8333 20.063 20.5C19.755 20.1667 19.3007 20 18.7 20C18.0993 20 17.6243 20.1667 17.275 20.5C16.9257 20.8333 16.284 21 15.35 21C14.416 21 13.7743 20.8333 13.425 20.5C13.0757 20.1667 12.6007 20 12 20C11.3993 20 10.9243 20.1667 10.575 20.5C10.2257 20.8333 9.584 21 8.65 21C7.716 21 7.07433 20.8333 6.725 20.5C6.37567 20.1667 5.90067 20 5.3 20C4.69933 20 4.245 20.1667 3.937 20.5C3.629 20.8333 2.98333 21 2 21ZM2 16.5V14.5C2.63333 14.5 3.10833 14.3333 3.425 14C3.74167 13.6667 4.36667 13.5 5.3 13.5C6.23333 13.5 6.87933 13.6667 7.238 14C7.59667 14.3333 8.06733 14.5 8.65 14.5C9.25 14.5 9.725 14.3333 10.075 14C10.425 13.6667 11.0667 13.5 12 13.5C12.9333 13.5 13.575 13.6667 13.925 14C14.275 14.3333 14.75 14.5 15.35 14.5C15.95 14.5 16.425 14.3333 16.775 14C17.125 13.6667 17.7667 13.5 18.7 13.5C19.6333 13.5 20.2583 13.6667 20.575 14C20.8917 14.3333 21.3667 14.5 22 14.5V16.5C21.0167 16.5 20.371 16.3333 20.063 16C19.755 15.6667 19.3007 15.5 18.7 15.5C18.0993 15.5 17.6367 15.6667 17.312 16C16.9873 16.3333 16.3333 16.5 15.35 16.5C14.4 16.5 13.7543 16.3333 13.413 16C13.0717 15.6667 12.6007 15.5 12 15.5C11.3667 15.5 10.896 15.6667 10.588 16C10.28 16.3333 9.634 16.5 8.65 16.5C7.666 16.5 7.01167 16.3333 6.687 16C6.36233 15.6667 5.9 15.5 5.3 15.5C4.7 15.5 4.246 15.6667 3.938 16C3.63 16.3333 2.984 16.5 2 16.5ZM18.475 3.737C18.9583 4.229 19.2 4.81667 19.2 5.5C19.2 6.2 18.9583 6.79167 18.475 7.275C17.9917 7.75833 17.4 8 16.7 8C16 8 15.4083 7.75833 14.925 7.275C14.4417 6.79167 14.2 6.2 14.2 5.5C14.2 4.81667 14.4417 4.229 14.925 3.737C15.4083 3.245 16 2.99933 16.7 3C17.4 3.00067 17.9917 3.24567 18.475 3.737ZM8.65 12C8.3 12 7.99167 11.946 7.725 11.838C7.45833 11.73 7.18333 11.584 6.9 11.4L10.225 8.075L9.225 7.075L5.2 5.5V3L10.7 5L17.1 11.4C16.8167 11.5833 16.5417 11.7293 16.275 11.838C16.0083 11.9467 15.7 12.0007 15.35 12C14.75 12 14.275 11.8333 13.925 11.5C13.575 11.1667 12.9333 11 12 11C11.0667 11 10.425 11.1667 10.075 11.5C9.725 11.8333 9.25 12 8.65 12Z" fill="black"/>
+                </svg>
+              </span>
+              <span>Pool access</span>
+            </div>
+          </div>
+
+          <div class="mt-7 space-y-3 border-t border-white/10 pt-5">
+            <a
+              href="#contact"
+              class="block rounded-xl border border-white/30 px-5 py-3 text-center text-sm font-semibold tracking-[0.25em] text-white transition hover:bg-white/10"
+            >
+              Explore
+            </a>
+
+            <a
+              href="#contact"
+              class="block rounded-xl bg-[#F7F2E8] px-5 py-3 text-center text-sm font-semibold tracking-[0.25em] text-black transition hover:bg-amber-200"
+            >
+              Book Now
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="min-w-[82%] snap-center overflow-hidden rounded-[1.75rem] bg-[#4A4747] shadow-2xl md:min-w-0" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img
+            src="/aruna-project/images/card3.webp"
+            width="900"
+            height="700"
+            alt="Family Suite at Aruna Ubud Retreat"
+            class="h-full w-full object-cover transition duration-700 hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/35"></div>
+        </div>
+
+        <div class="p-6">
+          <p class="mb-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-amber-100">
+            Shared Moments
+          </p>
+
+          <h3 class="font-serif text-2xl text-[#FFEBD5]">
+            Family Nature Suite
+          </h3>
+
+          <p class="mt-3 text-sm leading-6 text-white/70">
+            A spacious suite for families who want comfort, togetherness, and a restful stay close to Ubud’s tropical calm.
+          </p>
+
+          <div class="mt-6 grid gap-3 text-sm text-white/75">
+            <div class="flex items-center gap-3">
+               <span><svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.6471 9.32109C18.2711 9.32109 18.8696 9.5666 19.3108 10.0036C19.7521 10.4406 20 11.0333 20 11.6514V17.477C20 18.0951 19.7521 18.6878 19.3108 19.1248C18.8696 19.5618 18.2711 19.8073 17.6471 19.8073H14.1176C13.4936 19.8073 12.8951 19.5618 12.4539 19.1248C12.0126 18.6878 11.7647 18.0951 11.7647 17.477V11.6514C11.7647 11.0333 12.0126 10.4406 12.4539 10.0036C12.8951 9.5666 13.4936 9.32109 14.1176 9.32109H17.6471ZM10.7929 10.4862C10.6584 10.8603 10.5892 11.2543 10.5882 11.6514H2.36353C1.70353 11.6514 1.17647 12.1722 1.17647 12.8165C1.17647 14.3417 1.90941 15.4765 3.14471 16.2571C4.40353 17.0529 6.19412 17.477 8.23529 17.477C9.06824 17.477 9.85882 17.4036 10.5882 17.2673V17.477C10.5882 17.8068 10.6365 18.1249 10.7224 18.4266C9.90139 18.5711 9.06911 18.6432 8.23529 18.6422C6.05294 18.6422 4.02 18.1924 2.51177 17.2405C0.98 16.2735 0 14.7856 0 12.8165C0 11.5197 1.06235 10.4862 2.36353 10.4862H10.7929ZM14.7059 11.6514C14.5499 11.6514 14.4003 11.7127 14.2899 11.822C14.1796 11.9312 14.1176 12.0794 14.1176 12.2339C14.1176 12.3884 14.1796 12.5366 14.2899 12.6459C14.4003 12.7551 14.5499 12.8165 14.7059 12.8165H17.0588C17.2148 12.8165 17.3645 12.7551 17.4748 12.6459C17.5851 12.5366 17.6471 12.3884 17.6471 12.2339C17.6471 12.0794 17.5851 11.9312 17.4748 11.822C17.3645 11.7127 17.2148 11.6514 17.0588 11.6514H14.7059ZM8.23529 0C9.48337 0 10.6803 0.49102 11.5629 1.36504C12.4454 2.23906 12.9412 3.42449 12.9412 4.66055C12.9412 5.8966 12.4454 7.08203 11.5629 7.95605C10.6803 8.83007 9.48337 9.32109 8.23529 9.32109C6.98722 9.32109 5.79026 8.83007 4.90773 7.95605C4.02521 7.08203 3.52941 5.8966 3.52941 4.66055C3.52941 3.42449 4.02521 2.23906 4.90773 1.36504C5.79026 0.49102 6.98722 0 8.23529 0ZM8.23529 1.16514C7.29924 1.16514 6.40152 1.5334 5.73962 2.18892C5.07773 2.84443 4.70588 3.73351 4.70588 4.66055C4.70588 5.58759 5.07773 6.47666 5.73962 7.13217C6.40152 7.78769 7.29924 8.15595 8.23529 8.15595C9.17135 8.15595 10.0691 7.78769 10.731 7.13217C11.3929 6.47666 11.7647 5.58759 11.7647 4.66055C11.7647 3.73351 11.3929 2.84443 10.731 2.18892C10.0691 1.5334 9.17135 1.16514 8.23529 1.16514Z" fill="white"/>
+                    </svg>
+              </span>
+              <span>4 Guests</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span><svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 18.907V10.804C0 10.271 0.0948149 9.70318 0.284445 9.10056C0.474074 8.49793 0.74963 8.04537 1.11111 7.74286V3.60133C1.11111 2.58575 1.32482 1.73164 1.75222 1.03898C2.17963 0.346328 2.70667 0 3.33333 0H8.33333C8.7163 0 9.04333 0.127847 9.31445 0.383541C9.58482 0.638035 9.81333 0.990366 10 1.44053C10.1867 0.990366 10.4152 0.638035 10.6856 0.383541C10.9567 0.127847 11.2837 0 11.6667 0H16.6667C17.2933 0 17.8204 0.346328 18.2478 1.03898C18.6752 1.73164 18.8889 2.58575 18.8889 3.60133V7.74286C19.2511 8.04537 19.5267 8.49793 19.7156 9.10056C19.9052 9.70318 20 10.271 20 10.804V18.907C20 19.1627 19.9467 19.3763 19.84 19.548C19.7333 19.7197 19.6011 19.8061 19.4433 19.8073C19.2856 19.8085 19.1537 19.7221 19.0478 19.548C18.9419 19.3739 18.8889 19.1603 18.8889 18.907V16.206H1.11111V18.907C1.11111 19.1627 1.05778 19.3763 0.951111 19.548C0.844444 19.7197 0.712222 19.8061 0.554445 19.8073C0.396667 19.8085 0.264815 19.7221 0.158889 19.548C0.0529628 19.3739 0 19.1603 0 18.907ZM10.5556 7.20266H17.7778V3.60133C17.7778 3.09114 17.6711 2.66378 17.4578 2.31926C17.2444 1.97473 16.9807 1.80186 16.6667 1.80066H11.6667C11.3519 1.80066 11.0881 1.97353 10.8756 2.31926C10.663 2.66498 10.5563 3.09234 10.5556 3.60133V7.20266ZM2.22222 7.20266H9.44444V3.60133C9.44444 3.09114 9.33778 2.66378 9.12444 2.31926C8.91111 1.97473 8.64741 1.80186 8.33333 1.80066H3.33333C3.01852 1.80066 2.75482 1.97353 2.54222 2.31926C2.32963 2.66498 2.22296 3.09234 2.22222 3.60133V7.20266ZM1.11111 14.4053H18.8889V10.804C18.8889 10.2938 18.7822 9.86644 18.5689 9.52191C18.3556 9.17739 18.0919 9.00452 17.7778 9.00332H2.22222C1.90741 9.00332 1.6437 9.17618 1.43111 9.52191C1.21852 9.86764 1.11185 10.295 1.11111 10.804V14.4053Z" fill="white"/>
+                    </svg>
+              </span>
+              <span>King + Twin Bed</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+               <span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.875 12.5V16.875H12.5M16.4766 16.4754L11.875 11.875M3.125 7.5V3.125H7.5M3.52344 3.52461L8.125 8.125M12.5 3.125H16.875V7.5M16.4754 3.52344L11.875 8.125M7.5 16.875H3.125V12.5M3.52461 16.4766L8.125 11.875" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+              </span>
+              <span>65 sqm</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 9C13.59 16.61 10 22 10 22H13C14.88 16.2 14 12.09 13.5 10M15.66 7.16C15.83 7.37 16 7.59 16.13 7.82C16.9448 9.10809 17.3235 10.6242 17.21 12.1441C17.0966 13.6641 16.497 15.1072 15.5 16.26C15.932 15.2127 16.1075 14.0772 16.0119 12.9483C15.9162 11.8194 15.5521 10.7297 14.95 9.77C14.87 9.64 14.78 9.53 14.7 9.41C14.1255 8.60699 13.3898 7.93263 12.54 7.43C11.1003 7.88999 9.84404 8.79556 8.95252 10.016C8.06101 11.2364 7.58037 12.7086 7.58 14.22C7.58 14.96 7.69 15.67 7.89 16.33C7.02275 15.124 6.5574 13.6755 6.56 12.19C6.56 9.84 7.7 7.76 9.45 6.46C8 6.35 6.46 6.67 5.12 7.5C4.5 7.91 3.96 8.38 3.5 8.91C4.05 7.58 5 6.39 6.3 5.57C7.8 4.63 9.5 4.32 11.14 4.56C10.73 4 10.23 3.47 9.63 3C9.05 2.58 8.42 2.24 7.76 2C9.2 2.04 10.64 2.5 11.87 3.43C12.5 3.9 13 4.47 13.4 5.07C13.5 5.07 13.59 5.06 13.69 5.06C16.89 5.06 19.6 7.17 20.5 10.08C19.9375 9.28654 19.2173 8.61768 18.3845 8.11525C17.5517 7.61281 16.6242 7.28762 15.66 7.16Z" fill="white"/>
+                </svg>
+              </span>
+              <span>Living space</span>
+            </div>
+          </div>
+
+          <div class="mt-7 space-y-3 border-t border-white/10 pt-5">
+            <a
+              href="#contact"
+              class="block rounded-xl border border-white/30 px-5 py-3 text-center text-sm font-semibold tracking-[0.25em] text-white transition hover:bg-white/10"
+            >
+              Explore
+            </a>
+
+            <a
+              href="#contact"
+              class="block rounded-xl bg-[#F7F2E8] px-5 py-3 text-center text-sm font-semibold tracking-[0.25em] text-black transition hover:bg-amber-200"
+            >
+              Book Now
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="min-w-[82%] snap-center overflow-hidden rounded-[1.75rem] bg-[#4A4747] shadow-2xl md:min-w-0" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img
+            src="/aruna-project/images/card3.webp"
+            width="900"
+            height="700"
+            alt="Family Suite at Aruna Ubud Retreat"
+            class="h-full w-full object-cover transition duration-700 hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/35"></div>
+        </div>
+
+        <div class="p-6">
+          <p class="mb-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-amber-100">
+            Shared Moments
+          </p>
+
+          <h3 class="font-serif text-2xl text-[#FFEBD5]">
+            Family Nature Suite
+          </h3>
+
+          <p class="mt-3 text-sm leading-6 text-white/70">
+            A spacious suite for families who want comfort, togetherness, and a restful stay close to Ubud’s tropical calm.
+          </p>
+
+          <div class="mt-6 grid gap-3 text-sm text-white/75">
+            <div class="flex items-center gap-3">
+               <span><svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.6471 9.32109C18.2711 9.32109 18.8696 9.5666 19.3108 10.0036C19.7521 10.4406 20 11.0333 20 11.6514V17.477C20 18.0951 19.7521 18.6878 19.3108 19.1248C18.8696 19.5618 18.2711 19.8073 17.6471 19.8073H14.1176C13.4936 19.8073 12.8951 19.5618 12.4539 19.1248C12.0126 18.6878 11.7647 18.0951 11.7647 17.477V11.6514C11.7647 11.0333 12.0126 10.4406 12.4539 10.0036C12.8951 9.5666 13.4936 9.32109 14.1176 9.32109H17.6471ZM10.7929 10.4862C10.6584 10.8603 10.5892 11.2543 10.5882 11.6514H2.36353C1.70353 11.6514 1.17647 12.1722 1.17647 12.8165C1.17647 14.3417 1.90941 15.4765 3.14471 16.2571C4.40353 17.0529 6.19412 17.477 8.23529 17.477C9.06824 17.477 9.85882 17.4036 10.5882 17.2673V17.477C10.5882 17.8068 10.6365 18.1249 10.7224 18.4266C9.90139 18.5711 9.06911 18.6432 8.23529 18.6422C6.05294 18.6422 4.02 18.1924 2.51177 17.2405C0.98 16.2735 0 14.7856 0 12.8165C0 11.5197 1.06235 10.4862 2.36353 10.4862H10.7929ZM14.7059 11.6514C14.5499 11.6514 14.4003 11.7127 14.2899 11.822C14.1796 11.9312 14.1176 12.0794 14.1176 12.2339C14.1176 12.3884 14.1796 12.5366 14.2899 12.6459C14.4003 12.7551 14.5499 12.8165 14.7059 12.8165H17.0588C17.2148 12.8165 17.3645 12.7551 17.4748 12.6459C17.5851 12.5366 17.6471 12.3884 17.6471 12.2339C17.6471 12.0794 17.5851 11.9312 17.4748 11.822C17.3645 11.7127 17.2148 11.6514 17.0588 11.6514H14.7059ZM8.23529 0C9.48337 0 10.6803 0.49102 11.5629 1.36504C12.4454 2.23906 12.9412 3.42449 12.9412 4.66055C12.9412 5.8966 12.4454 7.08203 11.5629 7.95605C10.6803 8.83007 9.48337 9.32109 8.23529 9.32109C6.98722 9.32109 5.79026 8.83007 4.90773 7.95605C4.02521 7.08203 3.52941 5.8966 3.52941 4.66055C3.52941 3.42449 4.02521 2.23906 4.90773 1.36504C5.79026 0.49102 6.98722 0 8.23529 0ZM8.23529 1.16514C7.29924 1.16514 6.40152 1.5334 5.73962 2.18892C5.07773 2.84443 4.70588 3.73351 4.70588 4.66055C4.70588 5.58759 5.07773 6.47666 5.73962 7.13217C6.40152 7.78769 7.29924 8.15595 8.23529 8.15595C9.17135 8.15595 10.0691 7.78769 10.731 7.13217C11.3929 6.47666 11.7647 5.58759 11.7647 4.66055C11.7647 3.73351 11.3929 2.84443 10.731 2.18892C10.0691 1.5334 9.17135 1.16514 8.23529 1.16514Z" fill="white"/>
+                    </svg>
+              </span>
+              <span>4 Guests</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span><svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 18.907V10.804C0 10.271 0.0948149 9.70318 0.284445 9.10056C0.474074 8.49793 0.74963 8.04537 1.11111 7.74286V3.60133C1.11111 2.58575 1.32482 1.73164 1.75222 1.03898C2.17963 0.346328 2.70667 0 3.33333 0H8.33333C8.7163 0 9.04333 0.127847 9.31445 0.383541C9.58482 0.638035 9.81333 0.990366 10 1.44053C10.1867 0.990366 10.4152 0.638035 10.6856 0.383541C10.9567 0.127847 11.2837 0 11.6667 0H16.6667C17.2933 0 17.8204 0.346328 18.2478 1.03898C18.6752 1.73164 18.8889 2.58575 18.8889 3.60133V7.74286C19.2511 8.04537 19.5267 8.49793 19.7156 9.10056C19.9052 9.70318 20 10.271 20 10.804V18.907C20 19.1627 19.9467 19.3763 19.84 19.548C19.7333 19.7197 19.6011 19.8061 19.4433 19.8073C19.2856 19.8085 19.1537 19.7221 19.0478 19.548C18.9419 19.3739 18.8889 19.1603 18.8889 18.907V16.206H1.11111V18.907C1.11111 19.1627 1.05778 19.3763 0.951111 19.548C0.844444 19.7197 0.712222 19.8061 0.554445 19.8073C0.396667 19.8085 0.264815 19.7221 0.158889 19.548C0.0529628 19.3739 0 19.1603 0 18.907ZM10.5556 7.20266H17.7778V3.60133C17.7778 3.09114 17.6711 2.66378 17.4578 2.31926C17.2444 1.97473 16.9807 1.80186 16.6667 1.80066H11.6667C11.3519 1.80066 11.0881 1.97353 10.8756 2.31926C10.663 2.66498 10.5563 3.09234 10.5556 3.60133V7.20266ZM2.22222 7.20266H9.44444V3.60133C9.44444 3.09114 9.33778 2.66378 9.12444 2.31926C8.91111 1.97473 8.64741 1.80186 8.33333 1.80066H3.33333C3.01852 1.80066 2.75482 1.97353 2.54222 2.31926C2.32963 2.66498 2.22296 3.09234 2.22222 3.60133V7.20266ZM1.11111 14.4053H18.8889V10.804C18.8889 10.2938 18.7822 9.86644 18.5689 9.52191C18.3556 9.17739 18.0919 9.00452 17.7778 9.00332H2.22222C1.90741 9.00332 1.6437 9.17618 1.43111 9.52191C1.21852 9.86764 1.11185 10.295 1.11111 10.804V14.4053Z" fill="white"/>
+                    </svg>
+              </span>
+              <span>King + Twin Bed</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+               <span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.875 12.5V16.875H12.5M16.4766 16.4754L11.875 11.875M3.125 7.5V3.125H7.5M3.52344 3.52461L8.125 8.125M12.5 3.125H16.875V7.5M16.4754 3.52344L11.875 8.125M7.5 16.875H3.125V12.5M3.52461 16.4766L8.125 11.875" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+              </span>
+              <span>65 sqm</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 9C13.59 16.61 10 22 10 22H13C14.88 16.2 14 12.09 13.5 10M15.66 7.16C15.83 7.37 16 7.59 16.13 7.82C16.9448 9.10809 17.3235 10.6242 17.21 12.1441C17.0966 13.6641 16.497 15.1072 15.5 16.26C15.932 15.2127 16.1075 14.0772 16.0119 12.9483C15.9162 11.8194 15.5521 10.7297 14.95 9.77C14.87 9.64 14.78 9.53 14.7 9.41C14.1255 8.60699 13.3898 7.93263 12.54 7.43C11.1003 7.88999 9.84404 8.79556 8.95252 10.016C8.06101 11.2364 7.58037 12.7086 7.58 14.22C7.58 14.96 7.69 15.67 7.89 16.33C7.02275 15.124 6.5574 13.6755 6.56 12.19C6.56 9.84 7.7 7.76 9.45 6.46C8 6.35 6.46 6.67 5.12 7.5C4.5 7.91 3.96 8.38 3.5 8.91C4.05 7.58 5 6.39 6.3 5.57C7.8 4.63 9.5 4.32 11.14 4.56C10.73 4 10.23 3.47 9.63 3C9.05 2.58 8.42 2.24 7.76 2C9.2 2.04 10.64 2.5 11.87 3.43C12.5 3.9 13 4.47 13.4 5.07C13.5 5.07 13.59 5.06 13.69 5.06C16.89 5.06 19.6 7.17 20.5 10.08C19.9375 9.28654 19.2173 8.61768 18.3845 8.11525C17.5517 7.61281 16.6242 7.28762 15.66 7.16Z" fill="white"/>
+                </svg>
+              </span>
+              <span>Living space</span>
+            </div>
+          </div>
+
+          <div class="mt-7 space-y-3 border-t border-white/10 pt-5">
+            <a
+              href="#contact"
+              class="block rounded-xl border border-white/30 px-5 py-3 text-center text-sm font-semibold tracking-[0.25em] text-white transition hover:bg-white/10"
+            >
+              Explore
+            </a>
+
+            <a
+              href="#contact"
+              class="block rounded-xl bg-[#F7F2E8] px-5 py-3 text-center text-sm font-semibold tracking-[0.25em] text-black transition hover:bg-amber-200"
+            >
+              Book Now
+            </a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- CARD 3 -->
+      <article class="min-w-[82%] snap-center overflow-hidden rounded-[1.75rem] bg-[#4A4747] shadow-2xl md:min-w-0" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img
+            src="/aruna-project/images/card3.webp"
+            width="900"
+            height="700"
+            alt="Family Suite at Aruna Ubud Retreat"
+            class="h-full w-full object-cover transition duration-700 hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/35"></div>
+        </div>
+
+        <div class="p-6">
+          <p class="mb-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-amber-100">
+            Shared Moments
+          </p>
+
+          <h3 class="font-serif text-2xl text-[#FFEBD5]">
+            Family Nature Suite
+          </h3>
+
+          <p class="mt-3 text-sm leading-6 text-white/70">
+            A spacious suite for families who want comfort, togetherness, and a restful stay close to Ubud’s tropical calm.
+          </p>
+
+          <div class="mt-6 grid gap-3 text-sm text-white/75">
+            <div class="flex items-center gap-3">
+               <span><svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.6471 9.32109C18.2711 9.32109 18.8696 9.5666 19.3108 10.0036C19.7521 10.4406 20 11.0333 20 11.6514V17.477C20 18.0951 19.7521 18.6878 19.3108 19.1248C18.8696 19.5618 18.2711 19.8073 17.6471 19.8073H14.1176C13.4936 19.8073 12.8951 19.5618 12.4539 19.1248C12.0126 18.6878 11.7647 18.0951 11.7647 17.477V11.6514C11.7647 11.0333 12.0126 10.4406 12.4539 10.0036C12.8951 9.5666 13.4936 9.32109 14.1176 9.32109H17.6471ZM10.7929 10.4862C10.6584 10.8603 10.5892 11.2543 10.5882 11.6514H2.36353C1.70353 11.6514 1.17647 12.1722 1.17647 12.8165C1.17647 14.3417 1.90941 15.4765 3.14471 16.2571C4.40353 17.0529 6.19412 17.477 8.23529 17.477C9.06824 17.477 9.85882 17.4036 10.5882 17.2673V17.477C10.5882 17.8068 10.6365 18.1249 10.7224 18.4266C9.90139 18.5711 9.06911 18.6432 8.23529 18.6422C6.05294 18.6422 4.02 18.1924 2.51177 17.2405C0.98 16.2735 0 14.7856 0 12.8165C0 11.5197 1.06235 10.4862 2.36353 10.4862H10.7929ZM14.7059 11.6514C14.5499 11.6514 14.4003 11.7127 14.2899 11.822C14.1796 11.9312 14.1176 12.0794 14.1176 12.2339C14.1176 12.3884 14.1796 12.5366 14.2899 12.6459C14.4003 12.7551 14.5499 12.8165 14.7059 12.8165H17.0588C17.2148 12.8165 17.3645 12.7551 17.4748 12.6459C17.5851 12.5366 17.6471 12.3884 17.6471 12.2339C17.6471 12.0794 17.5851 11.9312 17.4748 11.822C17.3645 11.7127 17.2148 11.6514 17.0588 11.6514H14.7059ZM8.23529 0C9.48337 0 10.6803 0.49102 11.5629 1.36504C12.4454 2.23906 12.9412 3.42449 12.9412 4.66055C12.9412 5.8966 12.4454 7.08203 11.5629 7.95605C10.6803 8.83007 9.48337 9.32109 8.23529 9.32109C6.98722 9.32109 5.79026 8.83007 4.90773 7.95605C4.02521 7.08203 3.52941 5.8966 3.52941 4.66055C3.52941 3.42449 4.02521 2.23906 4.90773 1.36504C5.79026 0.49102 6.98722 0 8.23529 0ZM8.23529 1.16514C7.29924 1.16514 6.40152 1.5334 5.73962 2.18892C5.07773 2.84443 4.70588 3.73351 4.70588 4.66055C4.70588 5.58759 5.07773 6.47666 5.73962 7.13217C6.40152 7.78769 7.29924 8.15595 8.23529 8.15595C9.17135 8.15595 10.0691 7.78769 10.731 7.13217C11.3929 6.47666 11.7647 5.58759 11.7647 4.66055C11.7647 3.73351 11.3929 2.84443 10.731 2.18892C10.0691 1.5334 9.17135 1.16514 8.23529 1.16514Z" fill="white"/>
+                    </svg>
+              </span>
+              <span>4 Guests</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span><svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 18.907V10.804C0 10.271 0.0948149 9.70318 0.284445 9.10056C0.474074 8.49793 0.74963 8.04537 1.11111 7.74286V3.60133C1.11111 2.58575 1.32482 1.73164 1.75222 1.03898C2.17963 0.346328 2.70667 0 3.33333 0H8.33333C8.7163 0 9.04333 0.127847 9.31445 0.383541C9.58482 0.638035 9.81333 0.990366 10 1.44053C10.1867 0.990366 10.4152 0.638035 10.6856 0.383541C10.9567 0.127847 11.2837 0 11.6667 0H16.6667C17.2933 0 17.8204 0.346328 18.2478 1.03898C18.6752 1.73164 18.8889 2.58575 18.8889 3.60133V7.74286C19.2511 8.04537 19.5267 8.49793 19.7156 9.10056C19.9052 9.70318 20 10.271 20 10.804V18.907C20 19.1627 19.9467 19.3763 19.84 19.548C19.7333 19.7197 19.6011 19.8061 19.4433 19.8073C19.2856 19.8085 19.1537 19.7221 19.0478 19.548C18.9419 19.3739 18.8889 19.1603 18.8889 18.907V16.206H1.11111V18.907C1.11111 19.1627 1.05778 19.3763 0.951111 19.548C0.844444 19.7197 0.712222 19.8061 0.554445 19.8073C0.396667 19.8085 0.264815 19.7221 0.158889 19.548C0.0529628 19.3739 0 19.1603 0 18.907ZM10.5556 7.20266H17.7778V3.60133C17.7778 3.09114 17.6711 2.66378 17.4578 2.31926C17.2444 1.97473 16.9807 1.80186 16.6667 1.80066H11.6667C11.3519 1.80066 11.0881 1.97353 10.8756 2.31926C10.663 2.66498 10.5563 3.09234 10.5556 3.60133V7.20266ZM2.22222 7.20266H9.44444V3.60133C9.44444 3.09114 9.33778 2.66378 9.12444 2.31926C8.91111 1.97473 8.64741 1.80186 8.33333 1.80066H3.33333C3.01852 1.80066 2.75482 1.97353 2.54222 2.31926C2.32963 2.66498 2.22296 3.09234 2.22222 3.60133V7.20266ZM1.11111 14.4053H18.8889V10.804C18.8889 10.2938 18.7822 9.86644 18.5689 9.52191C18.3556 9.17739 18.0919 9.00452 17.7778 9.00332H2.22222C1.90741 9.00332 1.6437 9.17618 1.43111 9.52191C1.21852 9.86764 1.11185 10.295 1.11111 10.804V14.4053Z" fill="white"/>
+                    </svg>
+              </span>
+              <span>King + Twin Bed</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+               <span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.875 12.5V16.875H12.5M16.4766 16.4754L11.875 11.875M3.125 7.5V3.125H7.5M3.52344 3.52461L8.125 8.125M12.5 3.125H16.875V7.5M16.4754 3.52344L11.875 8.125M7.5 16.875H3.125V12.5M3.52461 16.4766L8.125 11.875" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+              </span>
+              <span>65 sqm</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 9C13.59 16.61 10 22 10 22H13C14.88 16.2 14 12.09 13.5 10M15.66 7.16C15.83 7.37 16 7.59 16.13 7.82C16.9448 9.10809 17.3235 10.6242 17.21 12.1441C17.0966 13.6641 16.497 15.1072 15.5 16.26C15.932 15.2127 16.1075 14.0772 16.0119 12.9483C15.9162 11.8194 15.5521 10.7297 14.95 9.77C14.87 9.64 14.78 9.53 14.7 9.41C14.1255 8.60699 13.3898 7.93263 12.54 7.43C11.1003 7.88999 9.84404 8.79556 8.95252 10.016C8.06101 11.2364 7.58037 12.7086 7.58 14.22C7.58 14.96 7.69 15.67 7.89 16.33C7.02275 15.124 6.5574 13.6755 6.56 12.19C6.56 9.84 7.7 7.76 9.45 6.46C8 6.35 6.46 6.67 5.12 7.5C4.5 7.91 3.96 8.38 3.5 8.91C4.05 7.58 5 6.39 6.3 5.57C7.8 4.63 9.5 4.32 11.14 4.56C10.73 4 10.23 3.47 9.63 3C9.05 2.58 8.42 2.24 7.76 2C9.2 2.04 10.64 2.5 11.87 3.43C12.5 3.9 13 4.47 13.4 5.07C13.5 5.07 13.59 5.06 13.69 5.06C16.89 5.06 19.6 7.17 20.5 10.08C19.9375 9.28654 19.2173 8.61768 18.3845 8.11525C17.5517 7.61281 16.6242 7.28762 15.66 7.16Z" fill="white"/>
+                </svg>
+              </span>
+              <span>Living space</span>
+            </div>
+          </div>
+
+          <div class="mt-7 space-y-3 border-t border-white/10 pt-5">
+            <a
+              href="#contact"
+              class="block rounded-xl border border-white/30 px-5 py-3 text-center text-sm font-semibold tracking-[0.25em] text-white transition hover:bg-white/10"
+            >
+              Explore
+            </a>
+
+            <a
+              href="#contact"
+              class="block rounded-xl bg-[#F7F2E8] px-5 py-3 text-center text-sm font-semibold tracking-[0.25em] text-black transition hover:bg-amber-200"
+            >
+              Book Now
+            </a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- CARD 3 -->
+      <article class="min-w-[82%] snap-center overflow-hidden rounded-[1.75rem] bg-[#4A4747] shadow-2xl md:min-w-0" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img
+            src="/aruna-project/images/card3.webp"
+            width="900"
+            height="700"
+            alt="Family Suite at Aruna Ubud Retreat"
+            class="h-full w-full object-cover transition duration-700 hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/35"></div>
+        </div>
+
+        <div class="p-6">
+          <p class="mb-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-amber-100">
+            Shared Moments
+          </p>
+
+          <h3 class="font-serif text-2xl text-[#FFEBD5]">
+            Family Nature Suite
+          </h3>
+
+          <p class="mt-3 text-sm leading-6 text-white/70">
+            A spacious suite for families who want comfort, togetherness, and a restful stay close to Ubud’s tropical calm.
+          </p>
+
+          <div class="mt-6 grid gap-3 text-sm text-white/75">
+            <div class="flex items-center gap-3">
+               <span><svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.6471 9.32109C18.2711 9.32109 18.8696 9.5666 19.3108 10.0036C19.7521 10.4406 20 11.0333 20 11.6514V17.477C20 18.0951 19.7521 18.6878 19.3108 19.1248C18.8696 19.5618 18.2711 19.8073 17.6471 19.8073H14.1176C13.4936 19.8073 12.8951 19.5618 12.4539 19.1248C12.0126 18.6878 11.7647 18.0951 11.7647 17.477V11.6514C11.7647 11.0333 12.0126 10.4406 12.4539 10.0036C12.8951 9.5666 13.4936 9.32109 14.1176 9.32109H17.6471ZM10.7929 10.4862C10.6584 10.8603 10.5892 11.2543 10.5882 11.6514H2.36353C1.70353 11.6514 1.17647 12.1722 1.17647 12.8165C1.17647 14.3417 1.90941 15.4765 3.14471 16.2571C4.40353 17.0529 6.19412 17.477 8.23529 17.477C9.06824 17.477 9.85882 17.4036 10.5882 17.2673V17.477C10.5882 17.8068 10.6365 18.1249 10.7224 18.4266C9.90139 18.5711 9.06911 18.6432 8.23529 18.6422C6.05294 18.6422 4.02 18.1924 2.51177 17.2405C0.98 16.2735 0 14.7856 0 12.8165C0 11.5197 1.06235 10.4862 2.36353 10.4862H10.7929ZM14.7059 11.6514C14.5499 11.6514 14.4003 11.7127 14.2899 11.822C14.1796 11.9312 14.1176 12.0794 14.1176 12.2339C14.1176 12.3884 14.1796 12.5366 14.2899 12.6459C14.4003 12.7551 14.5499 12.8165 14.7059 12.8165H17.0588C17.2148 12.8165 17.3645 12.7551 17.4748 12.6459C17.5851 12.5366 17.6471 12.3884 17.6471 12.2339C17.6471 12.0794 17.5851 11.9312 17.4748 11.822C17.3645 11.7127 17.2148 11.6514 17.0588 11.6514H14.7059ZM8.23529 0C9.48337 0 10.6803 0.49102 11.5629 1.36504C12.4454 2.23906 12.9412 3.42449 12.9412 4.66055C12.9412 5.8966 12.4454 7.08203 11.5629 7.95605C10.6803 8.83007 9.48337 9.32109 8.23529 9.32109C6.98722 9.32109 5.79026 8.83007 4.90773 7.95605C4.02521 7.08203 3.52941 5.8966 3.52941 4.66055C3.52941 3.42449 4.02521 2.23906 4.90773 1.36504C5.79026 0.49102 6.98722 0 8.23529 0ZM8.23529 1.16514C7.29924 1.16514 6.40152 1.5334 5.73962 2.18892C5.07773 2.84443 4.70588 3.73351 4.70588 4.66055C4.70588 5.58759 5.07773 6.47666 5.73962 7.13217C6.40152 7.78769 7.29924 8.15595 8.23529 8.15595C9.17135 8.15595 10.0691 7.78769 10.731 7.13217C11.3929 6.47666 11.7647 5.58759 11.7647 4.66055C11.7647 3.73351 11.3929 2.84443 10.731 2.18892C10.0691 1.5334 9.17135 1.16514 8.23529 1.16514Z" fill="white"/>
+                    </svg>
+              </span>
+              <span>4 Guests</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span><svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 18.907V10.804C0 10.271 0.0948149 9.70318 0.284445 9.10056C0.474074 8.49793 0.74963 8.04537 1.11111 7.74286V3.60133C1.11111 2.58575 1.32482 1.73164 1.75222 1.03898C2.17963 0.346328 2.70667 0 3.33333 0H8.33333C8.7163 0 9.04333 0.127847 9.31445 0.383541C9.58482 0.638035 9.81333 0.990366 10 1.44053C10.1867 0.990366 10.4152 0.638035 10.6856 0.383541C10.9567 0.127847 11.2837 0 11.6667 0H16.6667C17.2933 0 17.8204 0.346328 18.2478 1.03898C18.6752 1.73164 18.8889 2.58575 18.8889 3.60133V7.74286C19.2511 8.04537 19.5267 8.49793 19.7156 9.10056C19.9052 9.70318 20 10.271 20 10.804V18.907C20 19.1627 19.9467 19.3763 19.84 19.548C19.7333 19.7197 19.6011 19.8061 19.4433 19.8073C19.2856 19.8085 19.1537 19.7221 19.0478 19.548C18.9419 19.3739 18.8889 19.1603 18.8889 18.907V16.206H1.11111V18.907C1.11111 19.1627 1.05778 19.3763 0.951111 19.548C0.844444 19.7197 0.712222 19.8061 0.554445 19.8073C0.396667 19.8085 0.264815 19.7221 0.158889 19.548C0.0529628 19.3739 0 19.1603 0 18.907ZM10.5556 7.20266H17.7778V3.60133C17.7778 3.09114 17.6711 2.66378 17.4578 2.31926C17.2444 1.97473 16.9807 1.80186 16.6667 1.80066H11.6667C11.3519 1.80066 11.0881 1.97353 10.8756 2.31926C10.663 2.66498 10.5563 3.09234 10.5556 3.60133V7.20266ZM2.22222 7.20266H9.44444V3.60133C9.44444 3.09114 9.33778 2.66378 9.12444 2.31926C8.91111 1.97473 8.64741 1.80186 8.33333 1.80066H3.33333C3.01852 1.80066 2.75482 1.97353 2.54222 2.31926C2.32963 2.66498 2.22296 3.09234 2.22222 3.60133V7.20266ZM1.11111 14.4053H18.8889V10.804C18.8889 10.2938 18.7822 9.86644 18.5689 9.52191C18.3556 9.17739 18.0919 9.00452 17.7778 9.00332H2.22222C1.90741 9.00332 1.6437 9.17618 1.43111 9.52191C1.21852 9.86764 1.11185 10.295 1.11111 10.804V14.4053Z" fill="white"/>
+                    </svg>
+              </span>
+              <span>King + Twin Bed</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+               <span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.875 12.5V16.875H12.5M16.4766 16.4754L11.875 11.875M3.125 7.5V3.125H7.5M3.52344 3.52461L8.125 8.125M12.5 3.125H16.875V7.5M16.4754 3.52344L11.875 8.125M7.5 16.875H3.125V12.5M3.52461 16.4766L8.125 11.875" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+              </span>
+              <span>65 sqm</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 9C13.59 16.61 10 22 10 22H13C14.88 16.2 14 12.09 13.5 10M15.66 7.16C15.83 7.37 16 7.59 16.13 7.82C16.9448 9.10809 17.3235 10.6242 17.21 12.1441C17.0966 13.6641 16.497 15.1072 15.5 16.26C15.932 15.2127 16.1075 14.0772 16.0119 12.9483C15.9162 11.8194 15.5521 10.7297 14.95 9.77C14.87 9.64 14.78 9.53 14.7 9.41C14.1255 8.60699 13.3898 7.93263 12.54 7.43C11.1003 7.88999 9.84404 8.79556 8.95252 10.016C8.06101 11.2364 7.58037 12.7086 7.58 14.22C7.58 14.96 7.69 15.67 7.89 16.33C7.02275 15.124 6.5574 13.6755 6.56 12.19C6.56 9.84 7.7 7.76 9.45 6.46C8 6.35 6.46 6.67 5.12 7.5C4.5 7.91 3.96 8.38 3.5 8.91C4.05 7.58 5 6.39 6.3 5.57C7.8 4.63 9.5 4.32 11.14 4.56C10.73 4 10.23 3.47 9.63 3C9.05 2.58 8.42 2.24 7.76 2C9.2 2.04 10.64 2.5 11.87 3.43C12.5 3.9 13 4.47 13.4 5.07C13.5 5.07 13.59 5.06 13.69 5.06C16.89 5.06 19.6 7.17 20.5 10.08C19.9375 9.28654 19.2173 8.61768 18.3845 8.11525C17.5517 7.61281 16.6242 7.28762 15.66 7.16Z" fill="white"/>
+                </svg>
+              </span>
+              <span>Living space</span>
+            </div>
+          </div>
+
+          <div class="mt-7 space-y-3 border-t border-white/10 pt-5">
+            <a
+              href="#contact"
+              class="block rounded-xl border border-white/30 px-5 py-3 text-center text-sm font-semibold tracking-[0.25em] text-white transition hover:bg-white/10"
+            >
+              Explore
+            </a>
+
+            <a
+              href="#contact"
+              class="block rounded-xl bg-[#F7F2E8] px-5 py-3 text-center text-sm font-semibold tracking-[0.25em] text-black transition hover:bg-amber-200"
+            >
+              Book Now
+            </a>
+          </div>
+        </div>
+      </article>
+
+
+    </div>
+  </div>
+  </section>
+        
+        <!-- FOOTER -->
+<footer class="relative bg-[#07150F] px-5 pt-20 pb-24 text-[#F4EBDD] md:px-8 md:pb-12 xl:px-12">
+
+  <!-- TOP SOFT LINE -->
+  <div class="absolute left-0 top-0 h-px w-full bg-white/10"></div>
+
+  <div class="mx-auto max-w-7xl">
+
+    <!-- FOOTER MAIN -->
+    <div class="grid gap-12 lg:grid-cols-[1.1fr_0.7fr_0.8fr_0.8fr] lg:gap-10">
+
+      <!-- BRAND -->
+      <div>
+        <a href="#home" class="inline-flex items-center gap-4">
+          <!-- Logo SVG kamu bisa ganti dengan logo asli -->
+          <svg
+            class="h-12 w-12 text-[#F7F2E8]"
+            viewBox="0 0 79 76"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M32.7822 1.5C40.4332 1.5 44.0904 5.88153 44.2587 10.2281C44.427 14.5748 40.8157 27.6844 34.6949 27.6844C28.5741 27.6844 22.3462 16.2645 22.3462 11.4815C22.3462 6.69848 25.1312 1.5 32.7822 1.5ZM58.3021 18.0101C51.8561 21.7667 44.2128 30.6031 46.8332 35.1173C49.4537 39.6315 65.0503 39.7816 70.5781 37.5402C76.0983 35.2954 78.933 30.1039 76.7754 24.1932C74.6178 18.2825 67.0013 12.9443 58.3021 18.0101ZM63.4244 54.4833C60.364 50.2938 48.417 45.0813 44.3046 47.2773C40.1883 49.4768 41.8371 62.5341 45.414 66.1895C49.9472 70.8259 55.3412 71.4264 61.0794 67.9351C66.8177 64.4438 66.7947 59.0952 63.4244 54.4833ZM28.5741 69.4538C33.3866 63.77 32.0936 48.7891 28.5741 46.8828C25.0547 44.9801 14.5422 50.9676 9.95159 55.1571C1.78032 62.6144 7.58743 69.4538 10.9998 71.8174C16.1183 75.3645 24.0983 74.7465 28.5741 69.4538ZM9.58052 40.637C16.7342 40.637 22.8703 39.5687 23.7043 36.0774C24.5382 32.5861 17.5643 26.9478 12.9737 25.5513C7.23549 23.8056 2.57603 26.0924 1.68851 31.0116C0.99227 34.8624 1.92952 40.637 9.58052 40.637Z"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <div>
+            <p class="text-xl font-semibold tracking-wide text-[#F7F2E8]">
+              Aruna Ubud Retreat
+            </p>
+            <p class="mt-1 text-[10px] uppercase tracking-[0.35em] text-white/45">
+              Tropical Stay in Bali
+            </p>
+          </div>
+        </a>
+
+        <p class="mt-7 max-w-sm text-sm leading-7 text-white/60">
+          A peaceful retreat surrounded by Ubud’s greenery, warm hospitality, and slow moments designed for a calmer stay.
+        </p>
+
+        <!-- SOCIAL -->
+        <div class="mt-7 flex items-center gap-3">
+          <a
+            href="#"
+            aria-label="Facebook"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition hover:bg-white/10 hover:text-amber-100"
+          >
+            <span class="text-sm font-semibold">f</span>
+          </a>
+
+          <a
+            href="#"
+            aria-label="Instagram"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition hover:bg-white/10 hover:text-amber-100"
+          >
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="2" />
+              <circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="2" />
+              <circle cx="17" cy="7" r="1" fill="currentColor" />
+            </svg>
+          </a>
+
+          <a
+            href="#"
+            aria-label="Tripadvisor"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition hover:bg-white/10 hover:text-amber-100"
+          >
+            <span class="text-[10px] font-semibold tracking-widest">TA</span>
+          </a>
+
+          <a
+            href="https://wa.me/6281234567890"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition hover:bg-white/10 hover:text-amber-100"
+          >
+            <svg class="h-4 w-4" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+              <path d="M16.04 3C9.39 3 4 8.31 4 14.86c0 2.24.64 4.34 1.75 6.13L4.2 29l8.21-1.52a12.24 12.24 0 0 0 3.63.55C22.69 28.03 28 22.72 28 16.17S22.69 3 16.04 3Zm0 22.94c-1.2 0-2.38-.28-3.44-.82l-.49-.25-4.87.9.92-4.73-.31-.5a10.56 10.56 0 0 1-1.69-5.68c0-5.39 4.43-9.78 9.88-9.78s9.88 4.39 9.88 9.78-4.43 11.08-9.88 11.08Z"/>
+              <path d="M21.55 18.25c-.3-.15-1.76-.86-2.03-.96-.27-.1-.47-.15-.67.15-.2.29-.77.96-.95 1.16-.17.2-.35.22-.65.07-.3-.15-1.27-.46-2.42-1.45-.89-.78-1.49-1.75-1.67-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.59-.92-2.18-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.29-1.05 1.01-1.05 2.46s1.08 2.86 1.23 3.05c.15.2 2.13 3.19 5.17 4.47.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.76-.71 2.01-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35Z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- NAVIGATION -->
+      <div>
+        <p class="mb-5 text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-100">
+          Explore
+        </p>
+
+        <ul class="grid grid-cols-2 gap-x-8 gap-y-4 text-sm text-white/60 lg:grid-cols-1">
+          <li><a href="#home" class="transition hover:text-amber-100">Home</a></li>
+          <li><a href="#about" class="transition hover:text-amber-100">About</a></li>
+          <li><a href="#accommodation" class="transition hover:text-amber-100">Accommodation</a></li>
+          <li><a href="#offers" class="transition hover:text-amber-100">Offers</a></li>
+          <li><a href="#gallery" class="transition hover:text-amber-100">Gallery</a></li>
+          <li><a href="#contact" class="transition hover:text-amber-100">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div>
+        <p class="mb-5 text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-100">
+          Contact
+        </p>
+
+        <div class="space-y-5 text-sm leading-7 text-white/60">
+          <div>
+            <p class="text-white/35">Location</p>
+            <p>Ubud Central, Bali</p>
+          </div>
+
+          <div>
+            <p class="text-white/35">Telephone</p>
+            <a href="tel:+6281234567890" class="transition hover:text-amber-100">
+              +62 812 3456 7890
+            </a>
+          </div>
+
+          <div>
+            <p class="text-white/35">Email</p>
+            <a href="mailto:stay@arunaubudretreat.com" class="transition hover:text-amber-100">
+              stay@arunaubudretreat.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="rounded-3xl border border-white/10 bg-white/3 p-6">
+        <p class="text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-100">
+          Plan Your Stay
+        </p>
+
+        <p class="mt-5 text-sm leading-7 text-white/60">
+          Let us help you prepare a peaceful escape in Ubud, from room selection to special stay requests.
+        </p>
+
+        <a
+          href="#contact"
+          class="mt-7 block rounded-xl bg-[#F7F2E8] px-5 py-3 text-center text-sm font-semibold text-black transition hover:bg-amber-200"
+        >
+          Contact Reservation
+        </a>
+      </div>
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="mt-14 border-t border-white/10 pt-8">
+      <div class="flex flex-col gap-5 text-center text-[11px] text-white/40 md:flex-row md:items-center md:justify-between md:text-left">
+        <p>
+          © 2026 Aruna Ubud Retreat. All rights reserved.
+        </p>
+
+        <div class="flex justify-center gap-5">
+          <a href="#" class="transition hover:text-amber-100">Privacy Policy</a>
+          <a href="#" class="transition hover:text-amber-100">Terms</a>
+          <a href="#contact" class="transition hover:text-amber-100">Reservation</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+</html>
