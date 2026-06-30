@@ -360,28 +360,18 @@ img {
 }
 
 
-/*page accommodation*/
 
-.accommodation-tabs {
+/*page accommodation */
+
+.accom-room-nav {
   scrollbar-width: none;
 }
 
-.accommodation-tabs::-webkit-scrollbar {
+.accom-room-nav::-webkit-scrollbar {
   display: none;
 }
 
-.accommodation-image img {
-  transition:
-    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
-    filter 900ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.accommodation-image:hover img {
-  transform: scale(1.045);
-  filter: brightness(0.9);
-}
-
-.accommodation-soft-line {
+.accom-line {
   background: linear-gradient(
     to bottom,
     transparent,
@@ -390,11 +380,19 @@ img {
   );
 }
 
+.accom-image img {
+  transition:
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.accom-image:hover img {
+  transform: scale(1.045);
+  filter: brightness(0.9);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .accommodation-image img {
+  .accom-image img {
     transition: none;
   }
 }
-
-
-
