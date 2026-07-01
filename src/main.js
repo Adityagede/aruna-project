@@ -218,6 +218,37 @@ if (projectSwiperEl) {
 
 
 // =========================
+// ACTIVE NAV PAGE
+// =========================
+const navPageMap = {
+  '': 'home',
+  'index.html': 'home',
+  'about.html': 'about',
+  'accommodation.html': 'accommodation',
+  'offers.html': 'offers',
+  'contact.html': 'contact',
+  'gallery.html': 'gallery',
+}
+
+const currentFile = window.location.pathname.split('/').pop()
+const currentPage = navPageMap[currentFile] || 'home'
+
+const navLinks = document.querySelectorAll('[data-nav-page]')
+
+navLinks.forEach((link) => {
+  const linkPage = link.dataset.navPage
+  const isActive = linkPage === currentPage
+
+  link.classList.toggle('is-active', isActive)
+
+  if (isActive) {
+    link.setAttribute('aria-current', 'page')
+  } else {
+    link.removeAttribute('aria-current')
+  }
+})
+
+// =========================
 // RETREAT DEPTH SCROLL EFFECT
 // =========================
 const retreatDepthSection = document.querySelector('.retreat-depth-section')
