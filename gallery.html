@@ -144,15 +144,22 @@
 
 <div class="relative z-50 bg-[#F4EBDD] px-5 py-4 text-left text-[7px] md:text-[12px] font-medium uppercase tracking-wide text-[#6c471a]">
   <a href="#contact" class="transition hover:text-[#c8730b]">
-     Our Story
+     Romantic Escape
   </a>
 
   <span class="mx-4 text-[#6c471a]">|</span>
 
   <a href="#contact" class="transition hover:text-[#c8730b]">
-    Eksplore Accommodation
+    Wellness Retreat
+  </a>
+
+  <span class="mx-4 text-[#6c471a]">|</span>
+
+  <a href="#offers" class="transition-all hover:text-[#c8730b]">
+    Family Stay
   </a>
 </div>
+
 
 <nav
   x-data="hotelNavbar"
@@ -191,7 +198,6 @@
       <li><a href="./accommodation.html" data-nav-page="accommodation" class="nav-link" >Accommodation</a></li>
       <li><a href="./offers.html" data-nav-page="offers" class="nav-link" >Offers</a></li>
       <li><a href="./contact.html" data-nav-page="contact" class="nav-link" >Contact</a></li>
-
 
       <!-- DESKTOP GALLERY DROPDOWN -->
       <li class="relative" @click.outside="galleryOpen = false">
@@ -280,7 +286,7 @@
     >
       <ul class="space-y-4 text-sm font-medium">
         <li>
-          <a href="#home" @click="closeAll" data-nav-page="home" class="mobile-nav-link">
+          <a href="./index.html" @click="closeAll" data-nav-page="home" class="mobile-nav-link">
             Home
           </a>
         </li>
@@ -396,7 +402,7 @@
 
         <div class="swiper-slide h-full">
           <img
-            src="/aruna-project/images/pgabout-img.webp"
+            src="/aruna-project/images/contact1-img.webp"
             width="1920"
             height="1080"
             alt="Tropical jungle view at Aruna Ubud Retreat"
@@ -409,7 +415,7 @@
 
         <div class="swiper-slide h-full">
           <img
-            src="/aruna-project/images/image-landing1.webp"
+            src="/aruna-project/images/contact2-img.webp"
             width="1920"
             height="1080"
             alt="Private pool villa surrounded by tropical garden"
@@ -421,7 +427,7 @@
 
         <div class="swiper-slide h-full">
           <img
-            src="/aruna-project/images/image-landing2.webp"
+            src="/aruna-project/images/pgacc2-img.webp"
             width="1920"
             height="1080"
             alt="Peaceful villa terrace in Ubud greenery"
@@ -441,252 +447,288 @@
   </div>
 </header>
 
-<!-- ABOUT HERO -->
-<!-- OUR STORY SECTION -->
-<section id="our-story" class="relative overflow-hidden bg-[#07150F] px-5 py-24 text-[#F4EBDD] md:px-8 xl:px-12">
+<main class="bg-[#07150F] text-[#F4EBDD]">
 
-  <!-- subtle top blend -->
-  <div class="pointer-events-none absolute left-0 top-0 h-32 w-full bg-gradient-to-b from-[#07150F] to-transparent"></div>
 
-  <div class="relative z-10 mx-auto max-w-7xl">
-
-    <!-- SECTION TITLE -->
-    <div class="mx-auto max-w-3xl text-center" data-aos="fade-up">
-      <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.38em] text-amber-100">
-        Our Story
-      </p>
-
-      <h2 class="font-serif text-4xl leading-tight text-[#FFEBD5] md:text-5xl xl:text-6xl">
-        A slower way to stay in Ubud
-      </h2>
-    </div>
-
-    <!-- INTRO BLOCK -->
-    <div class="mt-16 grid gap-10 lg:grid-cols-[0.8fr_1px_1fr] lg:items-center lg:gap-12">
-
-      <!-- LEFT QUOTE -->
-      <div data-aos="fade-up">
-        <p class="max-w-md font-serif text-2xl italic leading-snug tracking-[0.08em] text-[#FFEBD5] md:text-3xl">
-          An invitation to slow down, breathe deeply, and feel closer to nature.
-        </p>
-      </div>
-
-      <!-- CENTER LINE DESKTOP -->
-      <div class="hidden h-56 w-px bg-white/20 lg:block"></div>
-
-      <!-- RIGHT TEXT -->
-      <div data-aos="fade-up" data-aos-delay="100">
-        <p class="max-w-xl text-sm leading-7 text-white/65 md:text-base md:leading-8">
-          Aruna Ubud Retreat was created as a peaceful hideaway for travelers who seek calm,
-          comfort, and a deeper connection with Bali’s natural beauty. Surrounded by tropical
-          greenery and warm textures, every space is shaped to feel quiet, personal, and close
-          to the rhythm of Ubud.
-        </p>
-      </div>
-
-    </div>
-
-    <!-- STORY TIMELINE -->
-    <div class="story-thread relative mt-20 lg:mt-24">
-
-      <!-- FIRST IMAGE CENTER -->
-      <div class="relative mx-auto max-w-sm pl-12 lg:pl-0" data-aos="fade-up">
-        <div class="story-image overflow-hidden rounded-[1.5rem] border border-white/10">
-          <img
-            src="./images/about-story.webp"
-            width="900"
-            height="1200"
-            alt="Bali tropical scenery near Aruna Ubud Retreat"
-            class="aspect-[4/5] h-full w-full object-cover object-center"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-
-        <!-- small dot mobile -->
-        <div class="absolute left-[0.95rem] top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-[#F7F2E8] lg:hidden"></div>
-      </div>
-
-      <!-- SECOND STORY ROW -->
-      <div class="mt-20 grid gap-12 lg:mt-24 lg:grid-cols-2 lg:items-center lg:gap-20">
-
-        <!-- TEXT LEFT -->
-        <div class="relative pl-12 lg:pl-0" data-aos="fade-up">
-          <div class="absolute left-[0.95rem] top-2 h-2.5 w-2.5 rounded-full bg-[#F7F2E8] lg:hidden"></div>
-
-          <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-100">
-            Rooted in Calm
-          </p>
-
-          <h3 class="max-w-lg font-serif text-3xl leading-tight text-[#FFEBD5] md:text-4xl">
-            A place designed for quiet mornings and warm evenings.
-          </h3>
-
-          <p class="mt-6 max-w-xl text-sm leading-7 text-white/65 md:text-base md:leading-8">
-            From the first step into the garden to the final evening light, Aruna invites guests
-            to experience Ubud at a slower pace. The retreat blends natural materials, soft
-            surroundings, and thoughtful hospitality to create a stay that feels grounded,
-            intimate, and restful.
-          </p>
-        </div>
-
-        <!-- IMAGE RIGHT -->
-        <div class="story-image overflow-hidden rounded-[1.5rem] border border-white/10" data-aos="fade-up" data-aos-delay="120">
-          <img
-            src="./images/staying-content.webp"
-            width="1200"
-            height="850"
-            alt="Tropical garden and villa pathway at Aruna Ubud Retreat"
-            class="aspect-[4/3] h-full w-full object-cover object-center"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-
-      </div>
-
-      <!-- SIGNATURE / CLOSING -->
-      <div class="mx-auto mt-20 max-w-2xl text-center lg:mt-24" data-aos="fade-up">
-        <p class="font-serif text-3xl italic leading-snug text-[#FFEBD5] md:text-4xl">
-          Aruna Ubud Retreat
-        </p>
-
-        <p class="mx-auto mt-5 max-w-md text-sm leading-7 text-white/55">
-          A calm tropical stay shaped by nature, comfort, and the softer side of Bali.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-    <main>
-        
-        <!-- OUR PHILOSOPHY -->
-<section id="philosophy" class="relative bg-[#292828] px-5 py-24 text-[#F4EBDD] md:px-8 xl:px-12">
-
-  <!-- Soft transition from previous section -->
-  <div class="pointer-events-none absolute left-0 top-0 h-32 w-full bg-gradient-to-b from-[#07150F] via-[#292828]/90 to-[#292828]"></div>
-
-  <div class="relative z-10 mx-auto max-w-7xl">
-
-    <!-- HEADER -->
-    <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+  <!-- INTRO -->
+  <section class="relative px-5 py-24 md:px-8 xl:px-12">
+    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
       <div data-aos="fade-up">
         <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.38em] text-amber-100">
-          Our Philosophy
+          Visual Story
         </p>
 
-        <h2 class="max-w-2xl font-serif text-4xl leading-tight text-[#FFEBD5] md:text-5xl xl:text-6xl">
-          A stay shaped by nature, comfort, and quiet details.
+        <h2 class="max-w-3xl font-serif text-4xl leading-tight text-[#FFEBD5] md:text-5xl xl:text-6xl">
+          Some places are remembered by how they make you feel.
         </h2>
       </div>
 
-      <p
-        class="max-w-xl text-sm leading-7 text-white/65 md:text-base"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        Aruna Ubud Retreat is guided by a simple idea: a place to stay should feel calm,
-        personal, and connected to its surroundings. Every space is designed to bring guests
-        closer to nature, while keeping the warmth and comfort of a private retreat.
-      </p>
-    </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <div class="gallery-soft-line mb-7 h-px w-full bg-white/20"></div>
 
-    <!-- CONTENT -->
-    <div class="mt-16 grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-
-      <!-- PHILOSOPHY LIST -->
-      <div class="space-y-9" data-aos="fade-up">
-
-        <!-- ITEM 1 -->
-        <div class="group border-t border-white/15 pt-6">
-          <div class="flex items-start gap-6">
-            <span class="text-sm text-white/45">01</span>
-
-            <div>
-              <h3 class="font-serif text-2xl text-[#FFEBD5]">
-                Nature-Led Spaces
-              </h3>
-
-              <p class="mt-3 max-w-md text-sm leading-7 text-white/60">
-                Our rooms and gardens are shaped around tropical greenery, natural textures,
-                and soft light, creating a stay that feels grounded and peaceful.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- ITEM 2 -->
-        <div class="group border-t border-white/15 pt-6">
-          <div class="flex items-start gap-6">
-            <span class="text-sm text-white/45">02</span>
-
-            <div>
-              <h3 class="font-serif text-2xl text-[#FFEBD5]">
-                Warm, Unhurried Hospitality
-              </h3>
-
-              <p class="mt-3 max-w-md text-sm leading-7 text-white/60">
-                We believe hospitality should feel personal, thoughtful, and never rushed —
-                giving every guest the space to feel at ease.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- ITEM 3 -->
-        <div class="group border-t border-white/15 pt-6">
-          <div class="flex items-start gap-6">
-            <span class="text-sm text-white/45">03</span>
-
-            <div>
-              <h3 class="font-serif text-2xl text-[#FFEBD5]">
-                Quiet Moments, Thoughtfully Made
-              </h3>
-
-              <p class="mt-3 max-w-md text-sm leading-7 text-white/60">
-                From slow mornings to calm evenings, every detail is created to support rest,
-                reflection, and a deeper connection with Ubud.
-              </p>
-            </div>
-          </div>
-        </div>
-
+        <p class="max-w-xl text-sm leading-7 text-white/65 md:text-base">
+          This gallery gathers the small details that shape a stay at Aruna:
+          soft morning light, tropical greenery, quiet poolside moments, and warm
+          spaces designed for rest.
+        </p>
       </div>
+    </div>
+  </section>
 
-      <!-- IMAGE BLOCK -->
-      <div class="relative" data-aos="fade-up" data-aos-delay="120">
-        <div class="relative overflow-hidden border border-white/10 aspect-[4/5] md:aspect-[16/10] lg:aspect-[4/3]">
+  <!-- ROOMS STORY -->
+  <section id="rooms" class="px-5 pb-24 md:px-8 xl:px-12">
+    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
+
+      <div class="gallery-item overflow-hidden border border-white/10" data-aos="fade-up">
+        <div class="relative aspect-[4/5] md:aspect-[16/10] lg:aspect-[4/5]">
           <img
-            src="./images/contoh.webp"
-            width="1400"
-            height="1000"
-            alt="Tropical garden and peaceful pool at Aruna Ubud Retreat"
-            class="h-full w-full object-cover object-center transition duration-700 hover:scale-105"
+            src="./images/contact1-img.webp"
+            width="1100"
+            height="1400"
+            alt="Warm room interior at Aruna Ubud Retreat"
+            class="gallery-reveal h-full w-full object-cover object-center"
             loading="lazy"
             decoding="async"
           />
 
-          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#292828]/80"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#07150F]/80"></div>
+
+          <div class="gallery-hover-caption absolute bottom-0 left-0 p-6">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-amber-100">
+              Rooms & Villas
+            </p>
+          </div>
         </div>
+      </div>
 
-        <!-- Small caption card -->
-        <div class="absolute bottom-5 left-5 right-5 border border-white/10 bg-[#292828]/85 p-5 backdrop-blur-md md:left-auto md:right-5 md:w-80">
-          <p class="text-[10px] font-semibold uppercase tracking-[0.3em] text-amber-100">
-            Rooted in Ubud
-          </p>
+      <div data-aos="fade-up" data-aos-delay="120">
+        <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-100">
+          Rooms & Villas
+        </p>
 
-          <p class="mt-3 text-sm leading-6 text-white/65">
-            A calm atmosphere shaped by tropical surroundings, warm materials, and quiet hospitality.
-          </p>
+        <h2 class="font-serif text-4xl leading-tight text-[#FFEBD5] md:text-5xl">
+          Warm spaces for slow mornings.
+        </h2>
+
+        <p class="mt-6 max-w-xl text-sm leading-7 text-white/65 md:text-base">
+          Natural textures, soft light, and quiet corners create a stay that feels
+          personal and grounded. Each room is designed to be restful without feeling
+          distant from the surrounding nature.
+        </p>
+
+        <div class="mt-10 grid grid-cols-2 gap-5">
+          <img
+            src="./images/gallery/gallery-room-detail.webp"
+            width="700"
+            height="900"
+            alt="Room detail at Aruna Ubud Retreat"
+            class="aspect-[4/5] w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <img
+            src="./images/gallery/gallery-pathway.webp"
+            width="700"
+            height="900"
+            alt="Pathway near rooms at Aruna Ubud Retreat"
+            class="mt-10 aspect-[4/5] w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
 
     </div>
-  </div>
-</section>
-        
+  </section>
+
+  <!-- POOL & GARDEN -->
+  <section id="pool-garden" class="relative bg-[#292828] px-5 py-24 md:px-8 xl:px-12">
+    <div class="pointer-events-none absolute left-0 top-0 h-40 w-full bg-gradient-to-b from-[#07150F] via-[#292828]/90 to-[#292828]"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl">
+      <div class="mb-14 grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-end">
+        <div data-aos="fade-up">
+          <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.38em] text-amber-100">
+            Pool & Garden
+          </p>
+
+          <h2 class="font-serif text-4xl leading-tight text-[#FFEBD5] md:text-5xl">
+            Tropical corners made for stillness.
+          </h2>
+        </div>
+
+        <p class="max-w-xl text-sm leading-7 text-white/65 md:text-base" data-aos="fade-up" data-aos-delay="100">
+          From quiet poolside afternoons to shaded garden paths, each corner is
+          shaped to invite calm without asking for attention.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-12 md:auto-rows-[220px] lg:auto-rows-[270px]">
+        <figure class="gallery-item relative overflow-hidden border border-white/10 md:col-span-7 md:row-span-2" data-aos="fade-up">
+          <img
+            src="./images/gallery-pool.webp"
+            width="1400"
+            height="1000"
+            alt="Poolside at Aruna Ubud Retreat"
+            class="h-full w-full object-cover transition duration-700 hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#292828]/80"></div>
+          <figcaption class="absolute bottom-0 left-0 p-6">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-amber-100">
+              Poolside Calm
+            </p>
+          </figcaption>
+        </figure>
+
+        <figure class="relative overflow-hidden border border-white/10 md:col-span-5 md:row-span-1" data-aos="fade-up" data-aos-delay="100">
+          <img
+            src="./images/gallery/gallery-garden.webp"
+            width="1000"
+            height="700"
+            alt="Garden at Aruna Ubud Retreat"
+            class="h-full w-full object-cover transition duration-700 hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#292828]/75"></div>
+        </figure>
+
+        <figure class="relative overflow-hidden border border-white/10 md:col-span-5 md:row-span-1" data-aos="fade-up" data-aos-delay="150">
+          <img
+            src="./images/gallery/gallery-ricefield.webp"
+            width="1000"
+            height="700"
+            alt="Ubud rice field surrounding"
+            class="h-full w-full object-cover transition duration-700 hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#292828]/75"></div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- DINING -->
+  <section id="dining" class="relative bg-[#292828] px-5 py-24 md:px-8 xl:px-12">
+    <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
+
+      <div data-aos="fade-up">
+        <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-100">
+          Dining Moments
+        </p>
+
+        <h2 class="max-w-xl font-serif text-4xl leading-tight text-[#FFEBD5] md:text-5xl">
+          Simple rituals, made to feel slower.
+        </h2>
+
+        <p class="mt-6 max-w-xl text-sm leading-7 text-white/65 md:text-base">
+          Morning breakfast, afternoon tea, and quiet dining moments are part of
+          the rhythm of staying here. Nothing is rushed, and every detail is kept warm.
+        </p>
+      </div>
+
+      <div class="gallery-item overflow-hidden border border-white/10" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative aspect-4/5 md:aspect-16/10 lg:aspect-4/5 xl:aspect-9/16">
+          <img
+            src="./images/dining-moment.webp"
+            width="1100"
+            height="1400"
+            alt="Dining moment at Aruna Ubud Retreat"
+            class="gallery-reveal h-full w-full object-cover overflow-hidden"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#292828]/80"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CINEMATIC IMAGE -->
+  <section class="relative bg-[#292828] px-5 py-24 md:px-8 xl:px-12">
+    <div class="mx-auto max-w-7xl">
+      <div class="relative overflow-hidden border border-white/10" data-aos="fade-up">
+        <div class="aspect-[4/5] md:aspect-[21/9]">
+          <img
+            src="./images/gallery-evening.webp"
+            width="1800"
+            height="900"
+            alt="Evening ambience at Aruna Ubud Retreat"
+            class="h-full w-full object-cover transition duration-[1200ms] hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="absolute inset-0 bg-gradient-to-r from-[#292828]/90 via-[#292828]/30 to-transparent"></div>
+
+        <div class="absolute bottom-0 left-0 max-w-lg p-7 md:p-10">
+          <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.35em] text-amber-100">
+            Evening Ambience
+          </p>
+
+          <h2 class="font-serif text-3xl leading-tight text-[#FFEBD5] md:text-5xl">
+            Warm evenings made for quiet conversations.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDITORIAL GALLERY GRID -->
+  <section class="relative bg-[#07150F] px-5 py-24 md:px-8 xl:px-12">
+    <div class="pointer-events-none absolute left-0 top-0 h-40 w-full bg-gradient-to-b from-[#292828] via-[#07150F]/90 to-[#07150F]"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl">
+      <div class="mb-14 flex items-end justify-between gap-8">
+        <div data-aos="fade-up">
+          <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.38em] text-amber-100">
+            More Corners
+          </p>
+
+          <h2 class="font-serif text-4xl leading-tight text-[#FFEBD5] md:text-5xl">
+            A closer look at Aruna.
+          </h2>
+        </div>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-12 md:auto-rows-[220px] lg:auto-rows-[280px]">
+        <img src="./images/gallery-interior.webp" class="h-full w-full object-cover md:col-span-4 md:row-span-1" alt="Gallery room" loading="lazy" decoding="async" />
+        <img src="./images/gallery-pool.webp" class="h-full w-full object-cover md:col-span-8 md:row-span-2" alt="Gallery pool" loading="lazy" decoding="async" />
+        <img src="./images/gallery-garden.webp" class="h-full w-full object-cover md:col-span-4 md:row-span-2" alt="Gallery garden" loading="lazy" decoding="async" />
+        <img src="./images/gallery-breakfast.webp" class="h-full w-full object-cover md:col-span-5 md:row-span-1" alt="Gallery dining" loading="lazy" decoding="async" />
+        <img src="./images/gallery-evening.webp" class="h-full w-full object-cover md:col-span-3 md:row-span-1" alt="Gallery pathway" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="bg-[#07150F] px-5 pb-28 pt-10 text-center md:px-8 xl:px-12">
+    <div class="mx-auto max-w-3xl" data-aos="fade-up">
+      <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.38em] text-amber-100">
+        Aruna Ubud Retreat
+      </p>
+
+      <h2 class="font-serif text-4xl leading-tight text-[#FFEBD5] md:text-5xl">
+        Thank you for becoming part of our story.
+      </h2>
+
+      <a
+        href="./contact.html"
+        class="mt-9 inline-flex rounded-full border border-white/25 px-7 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-white/75 transition hover:bg-white/10 hover:text-amber-100"
+      >
+        Plan Your Stay
+      </a>
+    </div>
+  </section>
+
+  
+</main>    
         <!-- FOOTER -->
 <footer class="relative bg-[#07150F] px-5 pt-20 pb-24 text-[#F4EBDD] md:px-8 md:pb-12 xl:px-12">
 
@@ -855,11 +897,6 @@
     </div>
 
   </div>
-</footer>
-
-    </main>
-
-    
-
+</footer>
   </body>
 </html>
