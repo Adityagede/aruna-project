@@ -15,9 +15,8 @@ export default defineConfig({
         main: resolve(import.meta.dirname, 'index.html'),
         about: resolve(import.meta.dirname, 'about.html'),
         accommodation: resolve(import.meta.dirname, 'accommodation.html'),
-        offers: resolve (import.meta.dirname, 'offers.html'),
-        
-        
+        offers: resolve(import.meta.dirname, 'offers.html'),
+        contact: resolve(import.meta.dirname, 'contact.html'),
       },
     },
   },
