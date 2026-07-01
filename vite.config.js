@@ -17,6 +17,7 @@ export default defineConfig({
         accommodation: resolve(import.meta.dirname, 'accommodation.html'),
         offers: resolve(import.meta.dirname, 'offers.html'),
         contact: resolve(import.meta.dirname, 'contact.html'),
+        gallery: resolve(import.meta.dirname, 'gallery.html'),
       },
     },
   },
