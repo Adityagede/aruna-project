@@ -202,7 +202,7 @@
         <button
           type="button"
           @click="toggleGallery"
-          class="flex items-center gap-1 transition duration-300 hover:text-amber-200"
+          data-nav-page="gallery" class="nav-link"
         >
           More
 
@@ -225,7 +225,7 @@
           x-transition:leave-end="opacity-0 translate-y-3 scale-95"
           class="absolute left-0 top-full mt-7 w-56 rounded-2xl border border-white/10 bg-[#07150F]/95 p-3 shadow-2xl backdrop-blur-xl"
         >
-          <a href="#gallery" @click="closeAll" class="block rounded-xl px-4 py-3 text-sm text-white/75 transition hover:bg-white/10 hover:text-amber-200">
+          <a href="./gallery.html" @click="closeAll" data-nav-page="gallery" class="mobile-nav-link">
             All Gallery
           </a>
 
@@ -337,7 +337,7 @@
             class="overflow-hidden"
           >
             <div class="mt-3 space-y-4 border-l border-white/20 pl-4">
-              <a href="#gallery" @click="closeAll" class="block text-white/70 transition hover:translate-x-1 hover:text-amber-200">
+              <a href="./gallery.html" @click="closeAll" data-nav-page="gallery" class="mobile-nav-link">
                 All Gallery
               </a>
 
@@ -480,11 +480,11 @@
       <div class="gallery-item overflow-hidden border border-white/10" data-aos="fade-up">
         <div class="relative aspect-[4/5] md:aspect-[16/10] lg:aspect-[4/5]">
           <img
-            src="./images/contact1-img.webp"
+            src="./images/rv1.webp"
             width="1100"
             height="1400"
             alt="Warm room interior at Aruna Ubud Retreat"
-            class="gallery-reveal h-full w-full object-cover object-center"
+            class=" h-full w-full object-cover object-center"
             loading="lazy"
             decoding="async"
           />
@@ -516,7 +516,7 @@
 
         <div class="mt-10 grid grid-cols-2 gap-5">
           <img
-            src="./images/gallery/gallery-room-detail.webp"
+            src="./images/contact1-img.webp"
             width="700"
             height="900"
             alt="Room detail at Aruna Ubud Retreat"
@@ -526,7 +526,7 @@
           />
 
           <img
-            src="./images/gallery/gallery-pathway.webp"
+            src="./images/rv3.webp"
             width="700"
             height="900"
             alt="Pathway near rooms at Aruna Ubud Retreat"
@@ -583,7 +583,7 @@
 
         <figure class="relative overflow-hidden border border-white/10 md:col-span-5 md:row-span-1" data-aos="fade-up" data-aos-delay="100">
           <img
-            src="./images/gallery/gallery-garden.webp"
+            src="./images/pl2.webp"
             width="1000"
             height="700"
             alt="Garden at Aruna Ubud Retreat"
@@ -596,7 +596,7 @@
 
         <figure class="relative overflow-hidden border border-white/10 md:col-span-5 md:row-span-1" data-aos="fade-up" data-aos-delay="150">
           <img
-            src="./images/gallery/gallery-ricefield.webp"
+            src="./images/pl3.webp"
             width="1000"
             height="700"
             alt="Ubud rice field surrounding"
@@ -630,13 +630,13 @@
       </div>
 
       <div class="gallery-item overflow-hidden border border-white/10" data-aos="fade-up" data-aos-delay="100">
-        <div class="relative aspect-4/5 md:aspect-16/10 lg:aspect-4/5 xl:aspect-9/16">
+        <div class="relative h-[380px] sm:h-[480px] md:h-[600px] lg:h-[720px] overflow-hidden">
           <img
             src="./images/dining-moment.webp"
             width="1100"
             height="1400"
             alt="Dining moment at Aruna Ubud Retreat"
-            class="gallery-reveal h-full w-full object-cover overflow-hidden"
+            class=" absolute inset-0 h-full w-full object-cover overflow-hidden"
             loading="lazy"
             decoding="async"
           />
@@ -696,11 +696,11 @@
       </div>
 
       <div class="grid gap-5 md:grid-cols-12 md:auto-rows-[220px] lg:auto-rows-[280px]">
-        <img src="./images/gallery-interior.webp" class="h-full w-full object-cover md:col-span-4 md:row-span-1" alt="Gallery room" loading="lazy" decoding="async" />
-        <img src="./images/gallery-pool.webp" class="h-full w-full object-cover md:col-span-8 md:row-span-2" alt="Gallery pool" loading="lazy" decoding="async" />
-        <img src="./images/gallery-garden.webp" class="h-full w-full object-cover md:col-span-4 md:row-span-2" alt="Gallery garden" loading="lazy" decoding="async" />
-        <img src="./images/gallery-breakfast.webp" class="h-full w-full object-cover md:col-span-5 md:row-span-1" alt="Gallery dining" loading="lazy" decoding="async" />
-        <img src="./images/gallery-evening.webp" class="h-full w-full object-cover md:col-span-3 md:row-span-1" alt="Gallery pathway" loading="lazy" decoding="async" />
+        <img src="./images/corner4.webp" class="h-full w-full object-cover md:col-span-4 md:row-span-1" alt="Gallery room" loading="lazy" decoding="async" />
+        <img src="./images/corner2.webp" class="h-full w-full object-cover md:col-span-8 md:row-span-2" alt="Gallery pool" loading="lazy" decoding="async" />
+        <img src="./images/corner1.webp" class="h-full w-full object-cover md:col-span-4 md:row-span-2" alt="Gallery garden" loading="lazy" decoding="async" />
+        <img src="./images/corner3.webp" class="h-full w-full object-cover md:col-span-5 md:row-span-1" alt="Gallery dining" loading="lazy" decoding="async" />
+        <img src="./images/corner5.webp" class="h-full w-full object-cover md:col-span-3 md:row-span-1" alt="Gallery pathway" loading="lazy" decoding="async" />
       </div>
     </div>
   </section>
